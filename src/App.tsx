@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom"
 import { RootGlobalStyle } from "./globalStyle"
 import Header from "./components/Header"
+import Paths from "./components/pages/routes"
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <BrowserRouter>
       <RootGlobalStyle/>
       <Header/>
+      <Paths/>
     </BrowserRouter>
   )
 }
