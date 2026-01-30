@@ -1,25 +1,35 @@
-import { Container } from "../../globalStyle";
-import { Card, DivInfos, InfoBistro, TitleBistro } from "./style";
-import sushi from "../../assets/sushi.png";
-import Button from "../Button";
-export default function Bistros() {
-    return (
+import { Container } from '../../globalStyle';
+import Button from '../Button';
+import * as S from './style';
 
+type RestaurantProps = {
+    name: string;
+    rating: number;
+    description: string;
+    image: string;
+    tags: string[];
+}
+
+export default function Bistro({ name, rating, description, image, tags }: RestaurantProps) {
+    return (
         <Container>
-            <Card>
-                <img src={sushi} alt="Comida japonesa." />
-                <DivInfos>
-                    <div>
-                    <TitleBistro>Hioki Sushi</TitleBistro>
-                    <span>4.9 ⭐</span>
-                    </div>
-                    <InfoBistro>
-                        Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!
-                    </InfoBistro>
+            <S.CardContainer>
+                <S.ImageWrapper>
+                    <img src={image} alt={name} />
+                    <S.TagContainer>
+                        {tags.map(tag => <S.Tag key={tag}>{tag}</S.Tag>)}
+                    </S.TagContainer>
+                </S.ImageWrapper>
+
+                <S.Content>
+                    <S.Header>
+                        <h3>{name}</h3>
+                        <S.Rating>{rating} ⭐</S.Rating>
+                    </S.Header>
+                    <p>{description}</p>
                     <Button />
-                </DivInfos>
-            </Card>
+                </S.Content>
+            </S.CardContainer>
         </Container>
     );
-
-}
+};

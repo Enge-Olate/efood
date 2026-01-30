@@ -1,40 +1,65 @@
-import styled from "styled-components";
-import { colors } from "../../globalStyle";
+import styled from 'styled-components';
+import { colors } from '../../globalStyle';
 
-export const Card = styled.div`
-    width: 472px;
-    height: auto;
-    margin-top: 80px;
-    margin-bottom: 120px;
-    background-color: ${colors.bcc};
-    position: relative;
-    color: ${colors.cft};
-    border: 1px solid;
-    
-    `
-    export const TitleBistro = styled.h3`
-    font-weight: 700;
-    margin-bottom: 16px;
-    `
-    export const InfoBistro = styled.p`
-    max-width:456px;
-    width:100%;
-    line-height: 22px;
-    font-weight: 400px;
+export const CardContainer = styled.article`
+  background: ${colors.bcc};
+  max-width: 472px;
+  position: relative;
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 217px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+export const TagContainer = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+`;
+
+export const Tag = styled.span`
+  background-color: ${colors.cft};
+  color: ${colors.bcf};
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: bold;
+`;
+
+export const Content = styled.div`
+  padding: 8px;
+  color: ${colors.cft};
+  border: 1px solid #E66767;  
+  border-top-color:transparent;
+  p {
     font-size: 14px;
-    margin-bottom: 16px;
+    line-height: 22px;
+    margin: 16px 0;
+  }
+`;
 
-    `
-    export const DivInfos = styled.div`
-    padding: 8px;
-    div{
-        display: flex;
-        align-content: center;
-        justify-content: space-between;
-        text-align: center;
-    }
-    span{
-        font-size:18px;
-    }
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+`;
 
-`
+export const Rating = styled.span`
+  font-weight: bold;
+  font-size: 18px;
+`;
+
