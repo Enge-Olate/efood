@@ -3,7 +3,9 @@ import styled, { createGlobalStyle } from "styled-components";
 export const colors ={
     bcm : "#FFF8F2",
     bcf:"#FFEBD9",
-    cft:"#E66767"
+    cft:"#E66767",
+    bcc:"#ffffff",
+    bcbl:"#E66767"
 }
 export const RootGlobalStyle = createGlobalStyle`
     *, a{

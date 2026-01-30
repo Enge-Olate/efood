@@ -1,4 +1,4 @@
-import Bistros from "../../Bistros";
+import Bistros from "../../Bistro";
 import Footer from "../../Footer";
 import Header from "../../Header";
 
