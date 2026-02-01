@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import hero from "../../assets/hero.png";
-import { colors } from "../../globalStyle";
+import { breakPoints, colors } from "../../globalStyle";
 export const HeaderStyle = styled.header`
     width: 100%;
     height: 384px;
@@ -23,4 +23,5 @@ export const Title = styled.h1`
     line-height: 100%;
     color: ${colors.cft};
     text-align: center;
+    @media (max-width: ${breakPoints.mobile}){font-size: 24px;}
 `

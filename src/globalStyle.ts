@@ -1,11 +1,16 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-export const colors ={
-    bcm : "#FFF8F2",
-    bcf:"#FFEBD9",
-    cft:"#E66767",
-    bcc:"#ffffff",
-    bcbl:"#E66767"
+export const colors = {
+    bcm: "#FFF8F2",
+    bcf: "#FFEBD9",
+    cft: "#E66767",
+    bcc: "#ffffff",
+    bcbl: "#E66767"
+}
+export const breakPoints = {
+    mobile: '576px',
+    tablet: '768px',
+    desktop: '992px',
 }
 export const RootGlobalStyle = createGlobalStyle`
     *, a{
@@ -20,9 +25,11 @@ export const RootGlobalStyle = createGlobalStyle`
         background-color: ${colors.bcm};
     }
 `
-export const Container = styled.div`
+export const Container = styled.main`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
 
+    
 `
+

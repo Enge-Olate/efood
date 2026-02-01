@@ -1,6 +1,5 @@
-import { Container } from '../../globalStyle';
 import Button from '../Button';
-import * as S from './style';
+import { CardContainer, Content, Header, ImageWrapper, Rating, Tag, TagContainer } from './style';
 
 type RestaurantProps = {
     name: string;
@@ -12,24 +11,22 @@ type RestaurantProps = {
 
 export default function Bistro({ name, rating, description, image, tags }: RestaurantProps) {
     return (
-        <Container>
-            <S.CardContainer>
-                <S.ImageWrapper>
+            <CardContainer>
+                <ImageWrapper>
                     <img src={image} alt={name} />
-                    <S.TagContainer>
-                        {tags.map(tag => <S.Tag key={tag}>{tag}</S.Tag>)}
-                    </S.TagContainer>
-                </S.ImageWrapper>
+                    <TagContainer>
+                        {tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                    </TagContainer>
+                </ImageWrapper>
 
-                <S.Content>
-                    <S.Header>
+                <Content>
+                    <Header>
                         <h3>{name}</h3>
-                        <S.Rating>{rating} ⭐</S.Rating>
-                    </S.Header>
+                        <Rating>{rating} ⭐</Rating>
+                    </Header>
                     <p>{description}</p>
                     <Button />
-                </S.Content>
-            </S.CardContainer>
-        </Container>
+                </Content>
+            </CardContainer>
     );
 };
