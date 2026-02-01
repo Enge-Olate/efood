@@ -1,9 +1,12 @@
 import { ButtonLink } from "./style";
-
-export default function Button(){
+type Props ={
+    title: string,
+    to?: string
+}
+export default function Button({ title }: Props){
     return(
-        <ButtonLink>
-            Saiba mais
+        <ButtonLink title={title}>
+            {title}
         </ButtonLink>
     );
 }
