@@ -29,9 +29,16 @@ export const Container = styled.main`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
-    @media (max-width: ${breakPoints.mobile}) {
+    @media (max-width: ${breakPoints.mobile}){
         max-width: 80%;
     }
+    @media (min-width: ${breakPoints.tablet}){
+        max-width: 80%;
+    }
+    @media (min-width: ${breakPoints.desktop}){
+        max-width: 50%;
+    }
+    
     
 `
 

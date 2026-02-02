@@ -27,7 +27,7 @@ export default function ListBistro() {
             name="Pizza Nona"
             image={pizza}
             rating={4.7}
-            description="Experimente nossas pizzas, o melhor da culinária Italiana com uma pitada brasiliana no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente a Italia sem sair do lar com nosso delivery!"
+            description="Experimente nossas pizzas, o melhor da culinária Italiana com uma pitada brasiliana no conforto da sua casa! Experimente a Italia sem sair do lar com nosso delivery!"
             tags={["Rodízio"]}
           />
         </List>

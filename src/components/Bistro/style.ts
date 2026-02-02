@@ -37,6 +37,9 @@ export const Tag = styled.span`
 
 export const Content = styled.div`
   padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   color: ${colors.cft};
   border: 1px solid #E66767;  
   border-top-color:transparent;
@@ -45,6 +48,7 @@ export const Content = styled.div`
     line-height: 22px;
     margin: 16px 0;
   }
+  
 `;
 
 export const Header = styled.div`

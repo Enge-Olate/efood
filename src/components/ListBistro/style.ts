@@ -19,5 +19,11 @@ export const List = styled.ul`
         grid-template-columns: 1fr;
         gap: 28px;
     }
+    @media (min-width: ${breakPoints.tablet}){
+        column-gap: 40px;
+    }
+    @media (min-width: ${breakPoints.desktop}){
+        column-gap: 80px;
+    }
 
 `

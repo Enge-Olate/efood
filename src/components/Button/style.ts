@@ -8,4 +8,5 @@ export const ButtonLink = styled.button`
     font-weight:700;
     border: none;
     cursor: pointer;
+    
 `

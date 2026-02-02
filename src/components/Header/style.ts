@@ -1,18 +1,43 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import hero from "../../assets/hero.png";
 import { breakPoints, colors } from "../../globalStyle";
-export const HeaderStyle = styled.header`
+type HeaderVariant = 'home' | 'default';
+interface HeaderProps {
+    variant: HeaderVariant;
+}
+export const HeaderStyle = styled.header<HeaderProps>`
     width: 100%;
-    height: 384px;
     margin-top: 24px;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
     background-image: url(${hero});
     background-repeat: no-repeat;
     background-size: cover;
+    
+    ${({ variant }) =>
+        variant === 'home' ? css`
+        height: 384px;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+    `
+        : css`
+            height: 186px;
+            padding: 0 171px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+    `}
+    @media (max-width: ${breakPoints.mobile}){
+        ${({ variant }) =>
+        variant === 'default' && css`
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-around;
+        `
 
+    }
+    }
     
 `
 export const Title = styled.h1`
@@ -25,3 +50,34 @@ export const Title = styled.h1`
     text-align: center;
     @media (max-width: ${breakPoints.mobile}){font-size: 24px;}
 `
+export const Subtitle = styled.h3`
+    font-weight: 900;
+    color: ${colors.cft};
+`
+
+// Estilo para o header default
+
+
+export const LeftArea = styled.h3`
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+`;
+
+export const CenterArea = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center; /* 👈 centraliza a logo no meio do header */
+`;
+
+export const RightArea = styled.h3`
+  width: 256px;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+
+
+
+
