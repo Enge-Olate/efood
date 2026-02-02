@@ -6,6 +6,7 @@ import {
   Subtitle,
   Title,
 } from "./style";
+
 import { Link } from "react-router-dom";
 type HeaderVariant = "home" | "default";
 interface HeaderProps {
@@ -31,7 +32,7 @@ export default function Header({
           </LeftArea>
           <CenterArea>
             <Link to={"/"}>
-              <img src={logo} alt="Logo da empresa."/>
+              <img src={logo} alt="Logo da empresa." />
             </Link>
           </CenterArea>
           <RightArea>

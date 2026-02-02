@@ -2,13 +2,12 @@ import Bistro from "../Bistro";
 import sushi from "../../assets/sushi.png";
 import massa from "../../assets/masssa.png";
 import pizza from "../../assets/pizza.png";
-import { ContainerListBistro, List } from "./style";
+import { ContainerListBistro } from "./style";
 import { Container } from "../../globalStyle";
 export default function ListBistro() {
   return (
     <Container>
       <ContainerListBistro>
-        <List>
           <Bistro
             name="Hioki Sushi"
             image={sushi}
@@ -30,7 +29,6 @@ export default function ListBistro() {
             description="Experimente nossas pizzas, o melhor da culinária Italiana com uma pitada brasiliana no conforto da sua casa! Experimente a Italia sem sair do lar com nosso delivery!"
             tags={["Rodízio"]}
           />
-        </List>
       </ContainerListBistro>
     </Container>
   );

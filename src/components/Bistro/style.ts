@@ -5,19 +5,18 @@ export const CardContainer = styled.article`
   background: ${colors.bcc};
   max-width: 472px;
   position: relative;
-`;
+  `;
 
 export const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 217px;
-
+  
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-`;
+  `;
 
 export const TagContainer = styled.div`
   position: absolute;
@@ -25,7 +24,7 @@ export const TagContainer = styled.div`
   right: 16px;
   display: flex;
   gap: 8px;
-`;
+  `;
 
 export const Tag = styled.span`
   background-color: ${colors.cft};
@@ -33,9 +32,10 @@ export const Tag = styled.span`
   padding: 6px 10px;
   font-size: 12px;
   font-weight: bold;
-`;
+  `;
 
 export const Content = styled.div`
+  height: 250px;
   padding: 8px;
   display: flex;
   flex-direction: column;

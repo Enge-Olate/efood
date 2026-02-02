@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 import hero from "../../assets/hero.png";
 import { breakPoints, colors } from "../../globalStyle";
+
 type HeaderVariant = 'home' | 'default';
 interface HeaderProps {
     variant: HeaderVariant;
 }
 export const HeaderStyle = styled.header<HeaderProps>`
     width: 100%;
-    margin-top: 24px;
     display: flex;
     background-image: url(${hero});
     background-repeat: no-repeat;
@@ -20,7 +20,7 @@ export const HeaderStyle = styled.header<HeaderProps>`
         flex-direction: column;
         justify-content: space-around;
     `
-        : css`
+            : css`
             height: 186px;
             padding: 0 171px;
             flex-direction: row;
@@ -58,7 +58,7 @@ export const Subtitle = styled.h3`
 // Estilo para o header default
 
 
-export const LeftArea = styled.h3`
+export const LeftArea = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-start;
@@ -67,15 +67,16 @@ export const LeftArea = styled.h3`
 export const CenterArea = styled.div`
   flex: 1;
   display: flex;
-  justify-content: center; /* 👈 centraliza a logo no meio do header */
+  justify-content: center; 
 `;
 
-export const RightArea = styled.h3`
+export const RightArea = styled.div`
   width: 256px;
   flex: 1;
   display: flex;
   justify-content: flex-end;
 `;
+
 
 
 

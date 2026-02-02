@@ -23,6 +23,7 @@ export const RootGlobalStyle = createGlobalStyle`
     }
     body{
         background-color: ${colors.bcm};
+        
     }
 `
 export const Container = styled.main`
@@ -32,12 +33,12 @@ export const Container = styled.main`
     @media (max-width: ${breakPoints.mobile}){
         max-width: 80%;
     }
-    @media (min-width: ${breakPoints.tablet}){
+    /* @media (min-width: ${breakPoints.tablet}){
         max-width: 80%;
     }
     @media (min-width: ${breakPoints.desktop}){
         max-width: 50%;
-    }
+    } */
     
     
 `
