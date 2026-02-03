@@ -13,32 +13,29 @@ export const HeaderStyle = styled.header<HeaderProps>`
     background-repeat: no-repeat;
     background-size: cover;
     
+    
     ${({ variant }) =>
         variant === 'home' ? css`
         height: 384px;
         align-items: center;
         flex-direction: column;
         justify-content: space-around;
+        @media(max-width: ${breakPoints.tablet}){
+            height: 250px;
+            justify-content: space-evenly;
+
+        }
     `
             : css`
             height: 186px;
-            padding: 0 171px;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
+            display: flex;
+            @media(max-width: ${breakPoints.tablet}){
+               flex-direction: column;
+               justify-content: space-around;
+                
+             }        
     `}
-    @media (max-width: ${breakPoints.mobile}){
-        ${({ variant }) =>
-        variant === 'default' && css`
-            flex-direction: column;
-            gap: 1rem;
-            align-items: center;
-            justify-content: space-around;
-        `
-
-    }
-    }
-    
+        
 `
 export const Title = styled.h1`
     max-width: 700px;
@@ -57,17 +54,31 @@ export const Subtitle = styled.h3`
 
 // Estilo para o header default
 
-
+export const ContainerNav=styled.div`
+    margin: 0 auto;
+    max-width: 1024px;
+    width: 100%;
+    display: flex;
+    align-items:center;
+    @media(max-width: ${breakPoints.tablet}){
+        flex-direction: column;
+    }
+`
 export const LeftArea = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-start;
+  
 `;
 
 export const CenterArea = styled.div`
   flex: 1;
   display: flex;
   justify-content: center; 
+  @media(max-width: ${breakPoints.tablet}){
+            width:auto ;
+            margin-top:8px;
+    }
 `;
 
 export const RightArea = styled.div`
@@ -75,6 +86,10 @@ export const RightArea = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
+   @media(max-width: ${breakPoints.tablet}){
+            width:auto ;
+            margin-top:8px;
+    }
 `;
 
 

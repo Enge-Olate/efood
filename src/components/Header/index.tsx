@@ -1,5 +1,6 @@
 import {
   CenterArea,
+  ContainerNav,
   HeaderStyle,
   LeftArea,
   RightArea,
@@ -26,7 +27,7 @@ export default function Header({
   return (
     <HeaderStyle variant={variant}>
       {variant === "default" && (
-        <>
+        <ContainerNav>
           <LeftArea>
             <Subtitle>{text}</Subtitle>
           </LeftArea>
@@ -38,7 +39,7 @@ export default function Header({
           <RightArea>
             <Subtitle>{infoCar}</Subtitle>
           </RightArea>
-        </>
+        </ContainerNav>
       )}
       {variant === "home" && (
         <>

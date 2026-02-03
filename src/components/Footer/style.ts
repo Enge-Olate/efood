@@ -1,26 +1,36 @@
-import styled from "styled-components";
-import { colors } from "../../globalStyle";
+import styled from "styled-components"
+import { breakPoints, colors } from "../../globalStyle"
 
-export const FooterStyle = styled.footer`
-    height: 298px;
+export const FooterContainer = styled.footer`
+    background-color: ${colors.bcf}; /* Cor bege mais escura dos seus estilos */
+    padding: 40px 0;
+    margin-top: 80px; /* Espaço entre as pizzas e o footer */
+    width: 100%;
+`
+
+export const FooterContent = styled.div`
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: space-around;
-    background-color: ${colors.bcf};
+    align-items: center;
+    text-align: center;
 
-    ul>li{
-        display: inline;
-        margin-right: 8px;
+    @media (max-width: ${breakPoints.tablet}) {
+        padding: 0 16px;
     }
+`
 
-    p{
-        max-width:560px;
-        width: 100%;
-        line-height: 100%;
-        font-size: 10px;
-        font-weight: 400;
-        text-align: center;
-        color: ${colors.cft};
-    }
+export const SocialLinks = styled.div`
+    display: flex;
+    gap: 8px;
+    margin: 32px 0 80px; /* Espaço entre logo, ícones e o texto final */
+`
+
+export const FooterText = styled.p`
+    font-size: 10px;
+    color: ${colors.cft};
+    max-width: 480px; /* Limita o texto para não ficar uma linha gigante no desktop */
+    line-height: 1.2;
 `

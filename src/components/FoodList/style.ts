@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../globalStyle";
+import { breakPoints, colors } from "../../globalStyle";
 
 export const ContainerProduct = styled.div`
     display: grid;
@@ -9,7 +9,17 @@ export const ContainerProduct = styled.div`
     padding-top: 56px;
     color: ${colors.bcc};
     padding-bottom: 120px;
-
+    @media (max-width: ${breakPoints.tablet}){
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 16px;
+    }
+    @media (min-width: ${breakPoints.tablet}) {
+        grid-template-columns:repeat(3, 1fr);
+        justify-items: center;
+        column-gap: 24px;
+    }    
+   
 `
 export const CardProduct=styled.div`
     max-width: 320px;
@@ -17,8 +27,8 @@ export const CardProduct=styled.div`
     display: flex;
     flex-direction: column;
     padding: 8px;
-    background-color: rgb(230, 103, 103);
-    color: rgb(255, 235, 217);
+    background-color: ${colors.bcbl};
+    color: ${colors.bcf};
 
     h4{
         margin: 8px 0;
