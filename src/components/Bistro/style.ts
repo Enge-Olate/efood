@@ -35,6 +35,7 @@ export const Tag = styled.span`
   `;
 
 export const Content = styled.div`
+  margin-top: -5px;
   height: 250px;
   padding: 8px;
   display: flex;
