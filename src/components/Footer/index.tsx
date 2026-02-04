@@ -25,9 +25,7 @@ export default function Footer() {
           </a>
         </SocialLinks>
         <FooterText>
-            A efood é uma plataforma para divulgação de estabelecimentos, a
-            responsabilidade pela entrega, qualidade dos produtos é toda do
-            estabelecimento contratado.{" "}
+            A efood é uma plataforma para divulgação de estabelecimentos, a responsabilidade pela entrega, qualidade dos produtos é toda do estabelecimento contratado. 
         </FooterText>
       </FooterContent>
     </FooterContainer>

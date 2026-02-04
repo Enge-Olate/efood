@@ -2,10 +2,10 @@ import styled from "styled-components"
 import { breakPoints, colors } from "../../globalStyle"
 
 export const FooterContainer = styled.footer`
-    background-color: ${colors.bcf}; /* Cor bege mais escura dos seus estilos */
-    padding: 40px 0;
-    margin-top: 80px; /* Espaço entre as pizzas e o footer */
     width: 100%;
+    padding: 40px 0;
+    margin-top: 80px; 
+    background-color: ${colors.bcf};
 `
 
 export const FooterContent = styled.div`
@@ -25,12 +25,15 @@ export const FooterContent = styled.div`
 export const SocialLinks = styled.div`
     display: flex;
     gap: 8px;
-    margin: 32px 0 80px; /* Espaço entre logo, ícones e o texto final */
+    margin: 32.5px 0 80px; 
 `
 
 export const FooterText = styled.p`
+    max-width: 550px; 
+    margin-bottom: 40px;
     font-size: 10px;
+    font-weight: 400;
     color: ${colors.cft};
-    max-width: 480px; /* Limita o texto para não ficar uma linha gigante no desktop */
-    line-height: 1.2;
+    line-height: 100%;
+
 `
