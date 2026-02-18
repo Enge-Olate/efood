@@ -4,12 +4,13 @@ type Props ={
     to?: string;
     type: 'button'|'link';
     variant?:'primary'|'secondary';
-    onclick?:()=>void
+    onclick?:()=>void;
+
 }
 export default function Button({ title, to, type, variant='primary', onclick}: Props){
     if(type === "link"){
         return(
-        <ButtonLink  to={to as string} title={title} type={type} variant={variant}>
+        <ButtonLink onClick={onclick}  to={to as string} title={title} type={type} variant={variant}>
             {title}
         </ButtonLink>
     );

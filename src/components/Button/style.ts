@@ -16,7 +16,7 @@ const CommonStyles =css<Props>`
     background-color: ${(props)=> props.variant === "primary"? colors.bcm: colors.bcbt};
     color: ${(props)=> props.variant === "primary"? colors.cft: colors.bcf};
     width: ${(props)=> props.variant === "primary"?  '304px':'fit-content'};
-    text-align: ${(props)=> props.variant === "primary"? 'center': ''};
+    text-align: center;
 
 `
 export const ButtonLink = styled(Link) <Props>`

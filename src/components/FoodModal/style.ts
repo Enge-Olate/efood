@@ -6,19 +6,27 @@ export const Modal = styled.div`
     height: 100%;
     background-color: ${colors.bcbt};
     header{
-        padding-bottom: 8px;
-        display: flex;
         position: relative;
+        display: flex;
     }
     header > img{
         position: absolute;
         display: block;
-        right: -8px;
+        right: 8px;
         top:8px;
         object-fit: cover;
+        cursor: pointer;
     }
-    
-    `
+    .overlay{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.75);
+    }
+        
+`
 export const ModalContent=styled.div`
 
     padding: 32px;
@@ -32,10 +40,20 @@ export const ModalContent=styled.div`
 
 `
 export const ModalInfo=styled.div`
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    max-width: 656px;
+    color: ${colors.bcc};
     font-size: 14px;
+    
+    p{
+        line-height: 22px;
+        font-weight: 400;
+    }
+    button{
+        
+        width: fit-content;
+    }
 
 `

@@ -3,7 +3,10 @@ import { CardProduct, ContainerProduct } from "./style";
 import pizza from "../../assets/pizza.png";
 import Button from "../Button";
 import FoodModal from "../FoodModal";
+import { useState } from "react";
 export default function FoodList() {
+  const [modalOpen, setModalOpen]= useState(false);
+
   return (
     <Container>
       <ContainerProduct>
@@ -15,7 +18,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" />
+          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -25,7 +28,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" />
+          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -35,7 +38,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" />
+          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -45,7 +48,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" />
+          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -55,7 +58,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" />
+          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -65,7 +68,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" />
+          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -75,10 +78,10 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" />
+          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
         </CardProduct>
       </ContainerProduct>
-      <FoodModal isVisible={true} />
+      <FoodModal isVisible={modalOpen} clolseModal={()=> setModalOpen(false)} />
     </Container>
   );
 }
