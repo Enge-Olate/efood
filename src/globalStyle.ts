@@ -5,7 +5,7 @@ export const colors = {
     bcf: "#FFEBD9",
     cft: "#E66767",
     bcc: "#ffffff",
-    bcbl: "#E66767"
+    bcbt: "#E66767"
 }
 export const breakPoints = {
     mobile: '576px',

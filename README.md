@@ -76,7 +76,7 @@ export default defineConfig([
 
 ## Projeto "efood" EBAC
 
-🏗️ Pratique:
+🏗️ Pratique: primeira parte
 
 1) Utilizar como base o layout disponível no link https://www.figma.com/file/JjduV2Tg713TzYUUsees8b/efood?type=design&node-id=0-1&mode=design&t=fWWekknoLsPfkJ5n-0;
 2) Criar um novo projeto React;
@@ -95,3 +95,12 @@ Para garantir consistência na realização da tarefa, faça a sua escolha entre
   GitHub Pages
   Cloudflare Pages
   Vercel
+
+
+🏗️ Pratique: segunda parte
+
+1) Utilizar como base esse layout: https://www.figma.com/file/ https://www.figma.com/file/JjduV2Tg713TzYUUsees8b/efood?type=design&node-id=0-1&mode=design;
+2) Criar o modal utilizada ao clicar em "comprar o produto" e preencher o conteúdo do site por AJAX utilizando essa API: http://api-ebac.vercelapp/api/efood/restaurantes;
+3) Subir as alterações no repositório;
+4) Fazer o deploy;
+5) Enviar o link do projeto.

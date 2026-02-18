@@ -27,7 +27,7 @@ export const CardProduct=styled.div`
     display: flex;
     flex-direction: column;
     padding: 8px;
-    background-color: ${colors.bcbl};
+    background-color: ${colors.bcbt};
     color: ${colors.bcf};
 
     h4{

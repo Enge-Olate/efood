@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import Button from "../Button";
+
 import {
   CardContainer,
   Content,
@@ -42,9 +42,7 @@ export default function Bistro({
           <Rating>{rating} ⭐</Rating>
         </Header>
         <p>{description}</p>
-        <Link to={"/perfil"}>
-          <Button title="Saiba mais" />
-        </Link>
+        <Button to={"/perfil"} title="Saiba mais" type="link" variant="secondary"/>
       </Content>
     </CardContainer>
   );
