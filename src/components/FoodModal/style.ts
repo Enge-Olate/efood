@@ -1,46 +1,60 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { colors } from "../../globalStyle";
-
+const fadeIn = keyframes`
+    from{opacity:0;}
+    to{opacity:1;}
+`
+const scaleUp = keyframes`
+    from{
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+`
 export const Modal = styled.div`
     width: 100%;
     height: 100%;
-    background-color: ${colors.bcbt};
-    header{
-        position: relative;
-        display: flex;
-    }
-    header > img{
-        position: absolute;
-        display: block;
-        right: 8px;
-        top:8px;
-        object-fit: cover;
-        cursor: pointer;
-    }
-    .overlay{
-        position: absolute;
-        top:0;
-        left:0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.75);
-    }
-        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 999;
+    animation: ${fadeIn} 0.3s ease-in-out forwards;
+    
 `
 export const ModalContent=styled.div`
-
+    max-width: 1024px;
+    width: 100%;
     padding: 32px;
     display: flex;
-    gap:24px;
+    background-color: ${colors.bcbt};
+    position: relative;
+    animation: ${scaleUp} 0.3s ease-in-out forwards;
     >img{
         width: 280px;
         height: 280px;
         object-fit: cover;
     }
-
+    header{
+        img{
+            position: absolute;
+            top:8px;
+            right: 8px;
+            cursor:pointer
+        }
+    }
+    
 `
 export const ModalInfo=styled.div`
-
+    margin-left: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

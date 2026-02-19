@@ -18,7 +18,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
+          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -28,7 +28,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
+          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -38,7 +38,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
+          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -48,7 +48,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
+          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -58,7 +58,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
+          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -68,7 +68,7 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
+          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
         </CardProduct>
         <CardProduct>
           <img src={pizza} alt="Pizza" />
@@ -78,10 +78,10 @@ export default function FoodList() {
             derretida, manjericão fresco e um toque de azeite. Sabor e
             simplicidade!
           </p>
-          <Button type="link" title="Saiba mais" onclick={()=>setModalOpen(true)}/>
+          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
         </CardProduct>
       </ContainerProduct>
-      <FoodModal isVisible={modalOpen} clolseModal={()=> setModalOpen(false)} />
+      <FoodModal isVisible={modalOpen} closeModal={()=> setModalOpen(false)} />
     </Container>
   );
 }

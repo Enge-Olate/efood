@@ -13,11 +13,23 @@ const CommonStyles =css<Props>`
     cursor: pointer;
     display: inline-block;
     transition: all 0.3s ease;
-    background-color: ${(props)=> props.variant === "primary"? colors.bcm: colors.bcbt};
-    color: ${(props)=> props.variant === "primary"? colors.cft: colors.bcf};
-    width: ${(props)=> props.variant === "primary"?  '304px':'fit-content'};
+    border: none;
     text-align: center;
 
+    /* Lógica de cores */   
+    background-color: ${(props)=> props.variant === "primary"? colors.bcm: colors.bcbt};
+    color: ${(props)=> props.variant === "primary"? colors.cft: colors.bcf};
+
+    /* Lógica de largura */
+    width: ${(props)=> props.variant === "primary"? '100%': 'fit-content'};
+    max-width: ${(props)=> props.variant === "primary"? '304px': 'none'};
+    &:hover{
+        filter: brightness(1.2);
+        transform: translateY(-1px);
+    }
+    &:active{
+        transform: translateX(0);
+    }
 `
 export const ButtonLink = styled(Link) <Props>`
     ${CommonStyles}
