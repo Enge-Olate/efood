@@ -13,7 +13,7 @@ const renderRouter = (ui: ReactElement)=>{
 describe("Componente Botão", ()=>{
     test("Deve levar a rota perfil", ()=>{
         renderRouter(<Link to={"/perfil"}>
-            <Button title="Saiba mais"></Button>
+            <Button type="link" title="Saiba mais"></Button>
         </Link>)
         const buttonElement = screen.getByText(/Saiba mais/i);
         expect(buttonElement.closest('a'));
