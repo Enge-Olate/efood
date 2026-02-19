@@ -1,34 +1,37 @@
+import { useEffect, useState } from "react";
 import Bistro from "../Bistro";
-import sushi from "../../assets/sushi.png";
-import massa from "../../assets/masssa.png";
-import pizza from "../../assets/pizza.png";
 import { ContainerListBistro } from "./style";
 import { Container } from "../../globalStyle";
+import type { Product } from "../../types";
+import { api } from "../../services/api";
 export default function ListBistro() {
+  const [bistros, setBistros] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    api.get<Product[]>('restaurantes')
+    .then((res)=>{
+      setBistros(res.data)
+      console.log(res);
+    })
+    .catch((error)=>{console.log("Erro: ", error)})
+    .finally(()=> setLoading(false));
+  },[])
+  if(loading)return <Container><h3>Carregando...</h3></Container>
   return (
     <Container>
       <ContainerListBistro>
-          <Bistro
-            name="Hioki Sushi"
-            image={sushi}
-            rating={4.9}
-            description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-            tags={["Destaque da semana", "Japonesa"]}
+        {bistros.map((bistro)=>
+          <Bistro key={bistro.id}
+            name={bistro.titulo}
+            image={bistro.capa}
+            tipo={bistro.tipo}
+            rating={bistro.avaliacao}
+            description={bistro.descricao}
+            tags={bistro.destacado? ["Destaque", bistro.tipo]: [bistro.tipo]}
           />
-          <Bistro
-            name="La Dolce Vita Trattoria"
-            image={massa}
-            rating={4.6}
-            description="A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!"
-            tags={["Italiana"]}
-          />
-          <Bistro
-            name="Pizza Nona"
-            image={pizza}
-            rating={4.7}
-            description="Experimente nossas pizzas, o melhor da culinária Italiana com uma pitada brasiliana no conforto da sua casa! Experimente a Italia sem sair do lar com nosso delivery!"
-            tags={["Rodízio"]}
-          />
+        )}
+          
       </ContainerListBistro>
     </Container>
   );

@@ -1,8 +1,20 @@
-export interface Product{
-    id:number;
-    title: string;
-    destak: boolean;
-    avaliation: number;
-    description: string;
-    cover: string;
+
+export interface Product {
+  id: number;
+  titulo: string;
+  destacado: boolean;
+  tipo: string;
+  avaliacao: number;
+  descricao: string;
+  capa: string;
+  cardapio: MenuItem[];
+}
+
+export interface MenuItem {
+  id: number;
+  foto: string;
+  preco: number;
+  nome: string;
+  descricao: string;
+  porcao: string;
 }

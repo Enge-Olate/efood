@@ -10,29 +10,31 @@ import {
   TagContainer,
 } from "./style";
 
-type RestaurantProps = {
+type Props = {
   name: string;
+  image: string;
   rating: number;
   description: string;
-  image: string;
-  tags: string[];
-};
-
+  destacado?: boolean;
+  tipo: string;
+  tags:string[];
+}
 export default function Bistro({
   name,
+  image,
   rating,
   description,
-  image,
-  tags,
-}: RestaurantProps) {
+  destacado,
+  tipo,
+  tags
+}: Props) {
   return (
     <CardContainer>
       <ImageWrapper>
         <img src={image} alt={name} />
         <TagContainer>
-          {tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
+          {destacado && <Tag>{tags}</Tag>}
+          <Tag>{tipo}</Tag>
         </TagContainer>
       </ImageWrapper>
 
