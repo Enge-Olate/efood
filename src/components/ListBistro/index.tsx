@@ -3,21 +3,19 @@ import Bistro from "../Bistro";
 import { ContainerListBistro } from "./style";
 import { Container } from "../../globalStyle";
 import type { Product } from "../../types";
-import { api } from "../../services/api";
+import { getBistros } from "../../services/getBistros";
 export default function ListBistro() {
   const [bistros, setBistros] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-
+  const [error, setError]= useState<string | null>(null);
   useEffect(()=>{
-    api.get<Product[]>('restaurantes')
-    .then((res)=>{
-      setBistros(res.data)
-      console.log(res);
-    })
-    .catch((error)=>{console.log("Erro: ", error)})
-    .finally(()=> setLoading(false));
-  },[])
-  if(loading)return <Container><h3>Carregando...</h3></Container>
+    getBistros()
+      .then(setBistros)
+      .catch(()=>setError("Falha ao carregar os restaurantes"))
+      .finally(()=> setLoading(false))
+  },[]);
+  if(loading)return (<Container><h3>Carregando...</h3></Container>);
+  if(error)return (<Container><h3>{error}</h3></Container>);
   return (
     <Container>
       <ContainerListBistro>

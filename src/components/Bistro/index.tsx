@@ -44,7 +44,7 @@ export default function Bistro({
           <Rating>{rating} ⭐</Rating>
         </Header>
         <p>{description}</p>
-        <Button to={"/perfil"} title="Saiba mais" type="link" variant="secondary"/>
+        <Button to={"/restaurantes/id"} title="Saiba mais" type="link" variant="secondary"/>
       </Content>
     </CardContainer>
   );

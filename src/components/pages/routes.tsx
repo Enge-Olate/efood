@@ -6,7 +6,7 @@ export default function Paths(){
     return(
         <Routes>
             <Route path="/" element={<Home />}/>
-            <Route path="/perfil" element={<Perfil />}/>
+            <Route path="/restaurantes/:id" element={<Perfil />}/>
         </Routes>
     );
 }

@@ -1,87 +1,35 @@
 import { Container } from "../../globalStyle";
 import { CardProduct, ContainerProduct } from "./style";
-import pizza from "../../assets/pizza.png";
-import Button from "../Button";
 import FoodModal from "../FoodModal";
+import Button from "../Button";
+import type { MenuItem } from "../../types";
 import { useState } from "react";
-export default function FoodList() {
-  const [modalOpen, setModalOpen]= useState(false);
+type Props={
+  itens: MenuItem[]
+}
 
+export default function FoodList({itens}:Props) {
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
+  
   return (
     <Container>
       <ContainerProduct>
-        <CardProduct>
-          <img src={pizza} alt="Pizza" />
-          <h4>Pizza Marguerita</h4>
-          <p>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </p>
-          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
-        </CardProduct>
-        <CardProduct>
-          <img src={pizza} alt="Pizza" />
-          <h4>Pizza Marguerita</h4>
-          <p>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </p>
-          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
-        </CardProduct>
-        <CardProduct>
-          <img src={pizza} alt="Pizza" />
-          <h4>Pizza Marguerita</h4>
-          <p>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </p>
-          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
-        </CardProduct>
-        <CardProduct>
-          <img src={pizza} alt="Pizza" />
-          <h4>Pizza Marguerita</h4>
-          <p>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </p>
-          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
-        </CardProduct>
-        <CardProduct>
-          <img src={pizza} alt="Pizza" />
-          <h4>Pizza Marguerita</h4>
-          <p>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </p>
-          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
-        </CardProduct>
-        <CardProduct>
-          <img src={pizza} alt="Pizza" />
-          <h4>Pizza Marguerita</h4>
-          <p>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </p>
-          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
-        </CardProduct>
-        <CardProduct>
-          <img src={pizza} alt="Pizza" />
-          <h4>Pizza Marguerita</h4>
-          <p>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </p>
-          <Button type="link" title="Saiba mais" onClick={()=>setModalOpen(true)}/>
-        </CardProduct>
+        {itens.map((item) => {
+          return (
+            <CardProduct key={item.id}>
+              <img src={item.foto} alt="" />
+              <h4>{item.nome}</h4>
+              <p>{item.descricao}</p>
+              <Button
+                type="link"
+                title="Saiba mais"
+                onClick={() => setModalOpen(true)}
+              />
+            </CardProduct>
+          );
+        })}
       </ContainerProduct>
-      <FoodModal isVisible={modalOpen} closeModal={()=> setModalOpen(false)} />
+      <FoodModal isVisible={modalOpen} closeModal={() => setModalOpen(false)} />
     </Container>
   );
 }

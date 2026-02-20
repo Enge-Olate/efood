@@ -26,6 +26,7 @@ export const CardProduct=styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 8px;
     background-color: ${colors.bcbt};
     color: ${colors.bcf};
@@ -44,6 +45,9 @@ export const CardProduct=styled.div`
         color: ${colors.cft};
         background-color: ${colors.bcc};
     }  
-
+    img{
+        height: 167px;
+        object-fit: cover;
+    }
 `
 
