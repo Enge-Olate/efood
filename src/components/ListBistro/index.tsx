@@ -21,6 +21,7 @@ export default function ListBistro() {
       <ContainerListBistro>
         {bistros.map((bistro)=>
           <Bistro key={bistro.id}
+            id={bistro.id}
             name={bistro.titulo}
             image={bistro.capa}
             tipo={bistro.tipo}

@@ -13,7 +13,7 @@ export default function Perfil() {
   const [bistro, setBistro] = useState<Product | null>(null);
   useEffect(() => {
     getIdBistro(Number(id))
-    .then(setBistro)
+    .then((data)=> setBistro(data))
     .catch((Error)=>console.log("Erro: ", Error));
   }, [id]);
   if (!bistro) {

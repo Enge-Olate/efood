@@ -18,6 +18,7 @@ type Props = {
   destacado?: boolean;
   tipo: string;
   tags:string[];
+  id: number;
 }
 export default function Bistro({
   name,
@@ -26,7 +27,8 @@ export default function Bistro({
   description,
   destacado,
   tipo,
-  tags
+  tags,
+  id
 }: Props) {
   return (
     <CardContainer>
@@ -44,7 +46,7 @@ export default function Bistro({
           <Rating>{rating} ⭐</Rating>
         </Header>
         <p>{description}</p>
-        <Button to={"/restaurantes/id"} title="Saiba mais" type="link" variant="secondary"/>
+        <Button to={`/restaurantes/${id}`} title="Saiba mais" type="link" variant="secondary"/>
       </Content>
     </CardContainer>
   );
