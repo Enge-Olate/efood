@@ -10,7 +10,7 @@ type Props={
 
 export default function FoodList({itens}:Props) {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
-  
+  const [selectedItem, setselectedItem] = useState<MenuItem| null>(null);
   return (
     <Container>
       <ContainerProduct>
@@ -23,13 +23,13 @@ export default function FoodList({itens}:Props) {
               <Button
                 type="link"
                 title="Saiba mais"
-                onClick={() => setModalOpen(true)}
+                onClick={() => {setModalOpen(true); setselectedItem(item);}}
               />
             </CardProduct>
           );
         })}
       </ContainerProduct>
-      <FoodModal isVisible={modalOpen} closeModal={() => setModalOpen(false)} />
+      <FoodModal item={selectedItem} isVisible={modalOpen} closeModal={() => setModalOpen(false)} />
     </Container>
   );
 }

@@ -8,6 +8,7 @@ export const getIdBistro = async (id: number): Promise<Product>=>{
         if(!findBistro){
             throw new Error('Restaurante não encontrado');
         }
+        console.log(findBistro);
         return findBistro;
     } catch (error) {
         console.error('Erro: ', error);

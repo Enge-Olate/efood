@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { colors } from "../../globalStyle";
+import { breakPoints, colors } from "../../globalStyle";
 const fadeIn = keyframes`
     from{opacity:0;}
     to{opacity:1;}
@@ -15,6 +15,7 @@ const scaleUp = keyframes`
     }
 `
 export const Modal = styled.div`
+    padding: 16px;
     width: 100%;
     height: 100%;
     display: flex;
@@ -51,6 +52,18 @@ export const ModalContent=styled.div`
             cursor:pointer
         }
     }
+    @media (max-width: ${breakPoints.mobile}) {
+        padding: 16px;
+        max-height: 90vh;
+        flex-direction: column;
+        overflow-y: auto;
+        >img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-top: 16px;
+        }
+    }
     
 `
 export const ModalInfo=styled.div`
@@ -60,14 +73,22 @@ export const ModalInfo=styled.div`
     justify-content: space-evenly;
     color: ${colors.bcc};
     font-size: 14px;
-    
+    @media (max-width: ${breakPoints.mobile}) {
+            margin: 0 ;
+            text-align: center;
+            gap: 5px;
+        }
     p{
         line-height: 22px;
         font-weight: 400;
+        
     }
     button{
         
         width: fit-content;
+        @media (max-width: ${breakPoints.mobile}) {
+            width: 100%;
+        }
     }
 
 `

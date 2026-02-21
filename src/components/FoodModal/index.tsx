@@ -1,13 +1,14 @@
-import pizza from "../../assets/pizza.png";
 import fechar from "../../assets/close_1.png";
 import Button from "../Button";
 import { Modal, ModalContent, ModalInfo } from "./style";
+import type { MenuItem } from "../../types";
 type Props = {
   isVisible: boolean;
   closeModal: () => void;
+  item: MenuItem | null;
 };
-export default function FoodModal({ isVisible, closeModal }: Props) {
-  if (!isVisible) return null;
+export default function FoodModal({ isVisible, closeModal, item }: Props) {
+  if (!isVisible || !item) return null;
 
   return (
     <Modal onClick={closeModal}>
@@ -15,28 +16,14 @@ export default function FoodModal({ isVisible, closeModal }: Props) {
         <header>
           <img src={fechar} alt="Clique para fechar" onClick={closeModal} />
         </header>
-        <img src={pizza} alt="
-        Pizza" />
+        <img
+          src={item.foto}
+          alt={item.nome}/>
         <ModalInfo>
-          <h3>Pizza Marguerita</h3>
-          <p>
-            A pizza Margherita é uma pizza clássica da culinária italiana,
-            reconhecida por sua simplicidade e sabor inigualável. Ela é feita
-            com uma base de massa fina e crocante, coberta com molho de tomate
-            fresco, queijo mussarela de alta qualidade, manjericão fresco e
-            azeite de oliva extra-virgem. A combinação de sabores é perfeita,
-            com o molho de tomate suculento e ligeiramente ácido, o queijo
-            derretido e cremoso e as folhas de manjericão frescas, que adicionam
-            um toque de sabor herbáceo. É uma pizza simples, mas deliciosa, que
-            agrada a todos os paladares e é uma ótima opção para qualquer
-            ocasião.
-          </p>
-          <p>Serve: de 2 a 3 pessoas</p>
-          <Button
-            title="Adicionar ao carrinho - R$60,90"
-            type="button"
-            variant="primary"
-          />
+          <h3>{item.nome}</h3>
+          <p>{item.descricao}</p>
+          <p>{`serve ${item.porcao}`}</p>
+          <Button title={`Adicionar ao carrinho - R$ ${item.preco}`} type="button" variant="primary" />
         </ModalInfo>
       </ModalContent>
     </Modal>

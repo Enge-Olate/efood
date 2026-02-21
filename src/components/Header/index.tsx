@@ -43,7 +43,7 @@ export default function Header({
       )}
       {variant === "home" && (
         <>
-          <Link to={"/perfil"}>
+          <Link to={"/"}>
             <img src={logo} alt="Logo da empresa." />
           </Link>
           <Title>{title}</Title>
