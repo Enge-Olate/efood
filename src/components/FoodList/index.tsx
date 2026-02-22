@@ -10,7 +10,7 @@ type Props={
 
 export default function FoodList({itens}:Props) {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
-  const [selectedItem, setselectedItem] = useState<MenuItem| null>(null);
+  const [selectedItem, setSelectedItem] = useState<MenuItem| null>(null);
   return (
     <Container>
       <ContainerProduct>
@@ -23,7 +23,7 @@ export default function FoodList({itens}:Props) {
               <Button
                 type="link"
                 title="Saiba mais"
-                onClick={() => {setModalOpen(true); setselectedItem(item);}}
+                onClick={() => {setModalOpen(true); setSelectedItem(item);}}
               />
             </CardProduct>
           );
