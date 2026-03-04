@@ -1,13 +1,13 @@
-import Footer from "../../Footer";
-import Header from "../../Header";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import logo from "../../../assets/logo.png";
-import FoodList from "../../FoodList";
-import Banner from "../../Banner";
+import FoodList from "../../components/FoodList";
+import Banner from "../../components/Banner";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import type { Product } from "../../../types";
-import { getIdBistro } from "../../../services/getIdBistro";
-import { Container } from "../../../globalStyle";
+import type { Product } from "../../types";
+import { getIdBistro } from "../../services/getIdBistro";
+import { Container } from "../../globalStyle";
 export default function Perfil() {
   const { id } = useParams();
   const [bistro, setBistro] = useState<Product | null>(null);

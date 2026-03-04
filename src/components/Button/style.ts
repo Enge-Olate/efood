@@ -17,8 +17,8 @@ const CommonStyles =css<Props>`
     text-align: center;
 
     /* Lógica de cores */   
-    background-color: ${(props)=> props.variant === "primary"? colors.bcm: colors.bcbt};
-    color: ${(props)=> props.variant === "primary"? colors.cft: colors.bcf};
+    background-color: ${(props)=> props.variant === "primary"? colors.orangePale: colors.tomato};
+    color: ${(props)=> props.variant === "primary"? colors.colorFontTomato: colors.colorFontCream};
 
     /* Lógica de largura */
     width: ${(props)=> props.variant === "primary"? '100%': 'fit-content'};
