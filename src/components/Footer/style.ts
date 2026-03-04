@@ -5,7 +5,7 @@ export const FooterContainer = styled.footer`
     width: 100%;
     padding: 40px 0;
     margin-top: 80px; 
-    background-color: ${colors.bcf};
+    background-color: ${colors.colorFontCream};
 `
 
 export const FooterContent = styled.div`
@@ -33,7 +33,7 @@ export const FooterText = styled.p`
     margin-bottom: 40px;
     font-size: 10px;
     font-weight: 400;
-    color: ${colors.cft};
+    color: ${colors.colorFontTomato};
     line-height: 100%;
 
 `

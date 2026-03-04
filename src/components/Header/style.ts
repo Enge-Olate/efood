@@ -43,13 +43,14 @@ export const Title = styled.h1`
     font-weight: 900;
     font-size: 36px;
     line-height: 100%;
-    color: ${colors.cft};
+    color: ${colors.colorFontTomato};
     text-align: center;
     @media (max-width: ${breakPoints.mobile}){font-size: 24px;}
 `
 export const Subtitle = styled.h3`
     font-weight: 900;
-    color: ${colors.cft};
+    cursor: pointer;
+    color: ${colors.colorFontTomato};
 `
 
 // Estilo para o header default

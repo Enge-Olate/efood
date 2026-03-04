@@ -7,7 +7,7 @@ export const ContainerProduct = styled.div`
     column-gap: 32px;
     row-gap: 32px;
     padding-top: 56px;
-    color: ${colors.bcc};
+    color: ${colors.branca};
     padding-bottom: 120px;
     @media (max-width: ${breakPoints.tablet}){
         grid-template-columns: 1fr;
@@ -28,8 +28,8 @@ export const CardProduct=styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding: 8px;
-    background-color: ${colors.bcbt};
-    color: ${colors.bcf};
+    background-color: ${colors.tomato};
+    color: ${colors.colorFontCream};
 
     h4{
         margin: 8px 0;
@@ -42,8 +42,8 @@ export const CardProduct=styled.div`
     }
     button{
         padding: 4px;
-        color: ${colors.cft};
-        background-color: ${colors.bcc};
+        color: ${colors.colorFontTomato};
+        background-color: ${colors.branca};
     }  
     img{
         height: 167px;

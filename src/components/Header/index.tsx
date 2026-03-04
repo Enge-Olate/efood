@@ -1,3 +1,4 @@
+
 import {
   CenterArea,
   ContainerNav,
@@ -16,6 +17,7 @@ interface HeaderProps {
   text?: string;
   logo: string;
   title?: string;
+  Click?: ()=> void;
 }
 export default function Header({
   variant = "default",
@@ -23,6 +25,7 @@ export default function Header({
   text,
   logo,
   title,
+  Click,
 }: HeaderProps) {
   return (
     <HeaderStyle variant={variant}>
@@ -37,7 +40,7 @@ export default function Header({
             </Link>
           </CenterArea>
           <RightArea>
-            <Subtitle>{infoCar}</Subtitle>
+            <Subtitle onClick={Click}>{infoCar}</Subtitle>
           </RightArea>
         </ContainerNav>
       )}

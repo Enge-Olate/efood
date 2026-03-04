@@ -18,7 +18,7 @@ export const InfoBistro=styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    color: ${colors.bcf};
+    color: ${colors.colorFontCream};
     @media(max-width: ${breakPoints.tablet}){
         text-align: center;
     }

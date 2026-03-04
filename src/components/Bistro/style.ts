@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from '../../globalStyle';
 
 export const CardContainer = styled.article`
-  background: ${colors.bcc};
+  background: ${colors.branca};
   max-width: 472px;
   position: relative;
   `;
@@ -27,8 +27,8 @@ export const TagContainer = styled.div`
   `;
 
 export const Tag = styled.span`
-  background-color: ${colors.cft};
-  color: ${colors.bcf};
+  background-color: ${colors.tomato};
+  color: ${colors.colorFontCream};
   padding: 6px 10px;
   font-size: 12px;
   font-weight: bold;
@@ -41,7 +41,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: ${colors.cft};
+  color: ${colors.colorFontTomato};
   border: 1px solid #E66767;  
   border-top-color:transparent;
   p {

@@ -1,11 +1,12 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const colors = {
-    bcm: "#FFF8F2",
-    bcf: "#FFEBD9",
-    cft: "#E66767",
-    bcc: "#ffffff",
-    bcbt: "#E66767"
+    orangePale: "#fff8f2",
+    colorFontCream: "#FFEBD9",
+    colorFontTomato: "#E66767",
+    branca: "#ffffff",
+    tomato: "#E66767",
+    black: "#000000",
 }
 export const breakPoints = {
     mobile: '576px',
@@ -24,7 +25,7 @@ export const RootGlobalStyle = createGlobalStyle`
     body{
         width: 100%;
         margin: 0 auto;
-        background-color: ${colors.bcm};
+        background-color: ${colors.orangePale};
         
     }
 `

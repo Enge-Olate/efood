@@ -1,15 +1,20 @@
-import { BrowserRouter } from "react-router-dom"
-import { RootGlobalStyle } from "./globalStyle"
-import Paths from "./components/pages/routes"
+import { BrowserRouter } from "react-router-dom";
+import { RootGlobalStyle } from "./globalStyle";
+import Paths from "./pages/routes";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import CartFood from "./components/CartFood";
 
 function App() {
-
   return (
-    <BrowserRouter>
-      <RootGlobalStyle/>
-      <Paths/>
-    </BrowserRouter>
-  )
+    <Provider store={store}>
+      <BrowserRouter>
+        <RootGlobalStyle />
+        <Paths />
+        <CartFood/>
+      </BrowserRouter>
+    </Provider>
+  );
 }
 
-export default App
+export default App;

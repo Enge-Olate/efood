@@ -36,7 +36,7 @@ export const ModalContent=styled.div`
     width: 100%;
     padding: 32px;
     display: flex;
-    background-color: ${colors.bcbt};
+    background-color: ${colors.tomato};
     position: relative;
     animation: ${scaleUp} 0.3s ease-in-out forwards;
     >img{
@@ -71,7 +71,7 @@ export const ModalInfo=styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    color: ${colors.bcc};
+    color: ${colors.branca};
     font-size: 14px;
     @media (max-width: ${breakPoints.mobile}) {
             margin: 0 ;
