@@ -1,6 +1,6 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import logo from "../../../assets/logo.png";
+import logo from "../../assets/logo.png";
 import FoodList from "../../components/FoodList";
 import Banner from "../../components/Banner";
 import { useParams } from "react-router-dom";

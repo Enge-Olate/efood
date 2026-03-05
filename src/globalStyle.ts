@@ -5,7 +5,8 @@ export const colors = {
     colorFontCream: "#FFEBD9",
     colorFontTomato: "#E66767",
     branca: "#ffffff",
-    tomato: "#E66767"
+    tomato: "#E66767",
+    black: "#000000",
 }
 export const breakPoints = {
     mobile: '576px',

@@ -1,6 +1,6 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import logo from "../../../assets/logo.png";
+import logo from "../../assets/logo.png";
 import ListBistro from "../../components/ListBistro";
 export default function Home() {
   return (
