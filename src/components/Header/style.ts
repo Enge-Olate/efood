@@ -49,6 +49,7 @@ export const Title = styled.h1`
 `
 export const Subtitle = styled.h3`
     font-weight: 900;
+    cursor: pointer;
     color: ${colors.colorFontTomato};
 `
 

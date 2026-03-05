@@ -4,14 +4,17 @@ import { colors } from "../../globalStyle";
 export const CartContainer=styled.div`
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: none;
     justify-content: end;
     position: fixed;
     top:0;
     left: 0;
     z-index: 1;
-    
-    `
+    &.is-open{
+        display: flex;
+        z-index: 999;
+    }    
+`
 export const Overlay= styled.div`
     width: 100vw;
     height: 100vh;
@@ -32,7 +35,8 @@ export const Sidebar = styled.aside`
     row-gap: 16px;
     background-color: ${colors.tomato};
     z-index: 1;
-    div{
+    >div{
+        margin-top:40px;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -54,9 +58,16 @@ export const CartProduct = styled.li`
     display: flex;
     position: relative;
     background-color: ${colors.orangePale};
+    img{
+        margin-right: 8px;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+    }
     div{
         display: flex;
         flex-direction: column;
+        gap: 16px;
         color: ${colors.colorFontTomato};
         h4{
             font-weight: 900;
@@ -66,12 +77,6 @@ export const CartProduct = styled.li`
             font-weight: 400;
         }
         
-    }
-    img{
-        margin-right: 8px;
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
     }
     img:last-child{
             width: 16px;

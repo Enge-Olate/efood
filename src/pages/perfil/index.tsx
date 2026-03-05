@@ -8,9 +8,17 @@ import { useEffect, useState } from "react";
 import type { Product } from "../../types";
 import { getIdBistro } from "../../services/getIdBistro";
 import { Container } from "../../globalStyle";
+import { useAppSelector } from "../../hooks/appSelector";
+import { useAppDispatch } from "../../hooks/appDispatch";
+import { open } from "../../store/reducers/cart";
 export default function Perfil() {
   const { id } = useParams();
   const [bistro, setBistro] = useState<Product | null>(null);
+  const {items} = useAppSelector((state)=> state.cart);
+  const dispatch = useAppDispatch();
+  const openCart = ()=>{
+    dispatch(open());
+  }
   useEffect(() => {
     getIdBistro(Number(id))
     .then((data)=> setBistro(data))
@@ -23,7 +31,8 @@ export default function Perfil() {
           variant="default"
           logo={logo}
           text="Restaurante"
-          infoCar="0 produto(s) no carrinho"
+          infoCar={`${items.length} produto(s) no carrinho`}
+          Click={()=> openCart()}
         />
         <Container>
           <h3>Carregando cardapio...</h3>
@@ -38,7 +47,8 @@ export default function Perfil() {
         variant="default"
         logo={logo}
         text="Restaurante"
-        infoCar="0 produto(s) no carrinho"
+        infoCar={`${items.length} produto(s) no carrinho`}
+        Click={()=> openCart()}
       />
       <Banner
         imagem={bistro.capa}
