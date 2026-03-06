@@ -5,7 +5,6 @@ import { useAppSelector } from "../../hooks/appSelector";
 import type { RootState } from "../../store";
 import { useAppDispatch } from "../../hooks/appDispatch";
 import { close, removeFood } from "../../store/reducers/cart";
-import type { MenuItem } from "../../types";
 import { formatPrices } from "../../utils";
 export default function CartFood() {
   const { isOpen, items } = useAppSelector((state: RootState) => state.cart);
@@ -13,25 +12,29 @@ export default function CartFood() {
   const closeCart = () => {
     dispatch(close());
   };
-  const removeItemCart =(id: number)=>{
+  const removeItemCart = (id: number) => {
     dispatch(removeFood(id));
   };
-  const total=()=>{
-    return items.reduce((acc, item)=> acc += item.preco, 0);
+  const total = () => {
+    return items.reduce((acc, item) => (acc += item.preco), 0);
   };
   return (
     <CartContainer className={isOpen ? "is-open" : ""}>
       <Overlay onClick={closeCart} />
       <Sidebar>
         <ul>
-          {items.map((item: MenuItem) => (
-            <CartProduct key={item.id}>
+          {items.map((item, index) => (
+            <CartProduct key={index}>
               <img src={item.foto} alt={item.nome} />
               <div>
                 <h4>{item.nome}</h4>
                 <p>{formatPrices(item.preco)}</p>
               </div>
-              <img onClick={()=> removeItemCart(item.id)} src={dump} alt="Lixeira" />
+              <img
+                onClick={() => removeItemCart(index)}
+                src={dump}
+                alt="Lixeira"
+              />
             </CartProduct>
           ))}
         </ul>

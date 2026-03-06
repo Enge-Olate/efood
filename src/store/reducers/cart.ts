@@ -22,15 +22,13 @@ const CartSlice = createSlice({
             state.isOpen=false;
         },
         addFoodCart:(state, action: PayloadAction<MenuItem>)=>{
-            const idFood = state.items.find((item)=>item.id === action.payload.id);
-            if(!idFood){
-                state.items.push(action.payload);
-            }else{
-                alert('Prato já adicionado!');
-            }
+            state.items.push(action.payload);
         },
         removeFood:(state, action: PayloadAction<number>)=>{
-            state.items = state.items.filter((item)=> item.id !== action.payload);
+            const index = action.payload;
+            if(index >= 0 && index < state.items.length){
+                state.items.splice(index, 1);
+            }
         }
     }
 });
