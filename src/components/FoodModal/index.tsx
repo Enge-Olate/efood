@@ -3,7 +3,7 @@ import Button from "../Button";
 import { Modal, ModalContent, ModalInfo } from "./style";
 import type { MenuItem } from "../../types";
 import { useAppDispatch } from "../../hooks/appDispatch";
-import { addFoodCart, open } from "../../store/reducers/cart";
+import { addFoodCart } from "../../store/reducers/cart";
 type Props = {
   isVisible: boolean;
   closeModal: () => void;
@@ -12,7 +12,6 @@ type Props = {
 export default function FoodModal({ isVisible, closeModal, item }: Props) {
   const dispatch = useAppDispatch();
   const handleOpenCart = ()=>{
-    dispatch(open());
     dispatch(addFoodCart(item!));
   };
  
