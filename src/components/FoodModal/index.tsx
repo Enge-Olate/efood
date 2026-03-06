@@ -13,6 +13,7 @@ export default function FoodModal({ isVisible, closeModal, item }: Props) {
   const dispatch = useAppDispatch();
   const handleOpenCart = ()=>{
     dispatch(addFoodCart(item!));
+    dispatch(closeModal);
   };
  
   if (!isVisible || !item) return null;

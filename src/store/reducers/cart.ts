@@ -22,7 +22,8 @@ const CartSlice = createSlice({
             state.isOpen=false;
         },
         addFoodCart:(state, action: PayloadAction<MenuItem>)=>{
-            state.items.push(action.payload);
+            const addProduct=state.items.push(action.payload);
+            if(addProduct)alert('Adicionado ao carrinho!');
         },
         removeFood:(state, action: PayloadAction<number>)=>{
             const index = action.payload;
