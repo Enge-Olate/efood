@@ -17,9 +17,7 @@ export default function CartFood() {
     dispatch(removeFood(id));
   };
   const total=()=>{
-    return items.reduce((amount, valueCurrent)=>{
-      return amount += valueCurrent.preco
-    }, 0);
+    return items.reduce((acc, item)=> acc += item.preco, 0);
   };
   return (
     <CartContainer className={isOpen ? "is-open" : ""}>
@@ -33,7 +31,7 @@ export default function CartFood() {
                 <h4>{item.nome}</h4>
                 <p>{formatPrices(item.preco)}</p>
               </div>
-              <img onClick={()=> removeItemCart(item.id)} src={dump} alt="" />
+              <img onClick={()=> removeItemCart(item.id)} src={dump} alt="Lixeira" />
             </CartProduct>
           ))}
         </ul>

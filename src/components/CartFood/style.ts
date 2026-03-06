@@ -24,7 +24,7 @@ export const Overlay= styled.div`
     top:0;
     left: 0;
     
-    `
+`
 export const Sidebar = styled.aside`
     padding: 32px 8px 0 8px;
     max-width: 360px;
@@ -47,7 +47,10 @@ export const Sidebar = styled.aside`
     button{
         max-width: 100vw;
     }
-    
+    ul{
+
+        overflow-y: auto;
+    }
     
 `
 export const CartProduct = styled.li`
