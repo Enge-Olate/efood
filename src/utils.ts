@@ -7,9 +7,3 @@ export const formatPrices = (preco = 0) => {
 
 
 
-export const getDescription = (text: string) => {
-  if (text.length > 95) {
-    return text.slice(0, 92) + '...';
-  }
-  return text;
-};

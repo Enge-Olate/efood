@@ -49,5 +49,10 @@ export const CardProduct=styled.div`
         height: 167px;
         object-fit: cover;
     }
+    @media(max-width: ${breakPoints.mobile}){
+        p{
+            font-size: 12px;
+        }
+    }
 `
 

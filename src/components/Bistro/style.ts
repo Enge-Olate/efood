@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../globalStyle';
+import { breakPoints, colors } from '../../globalStyle';
 
 export const CardContainer = styled.article`
   background: ${colors.branca};
@@ -48,6 +48,11 @@ export const Content = styled.div`
     font-size: 14px;
     line-height: 22px;
     margin: 16px 0;
+  }
+  @media(max-width: ${breakPoints.mobile}){
+    p{
+      font-size: 12px;
+    }
   }
   
 `;

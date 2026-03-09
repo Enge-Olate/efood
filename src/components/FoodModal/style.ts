@@ -75,6 +75,7 @@ export const ModalInfo=styled.div`
     font-size: 14px;
     @media (max-width: ${breakPoints.mobile}) {
             margin: 0 ;
+            font-size: 12px;
             text-align: center;
             gap: 5px;
         }
