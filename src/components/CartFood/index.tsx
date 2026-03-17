@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { CartContainer, CartProduct, Overlay, Sidebar } from "./style";
 import dump from "../../assets/dump.png";
 import Button from "../Button";
@@ -8,6 +9,7 @@ import { close, removeFood } from "../../store/reducers/cart";
 import { formatPrices } from "../../utils";
 export default function CartFood() {
   const { isOpen, items } = useAppSelector((state: RootState) => state.cart);
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const closeCart = () => {
     dispatch(close());
@@ -18,6 +20,9 @@ export default function CartFood() {
   const total = () => {
     return items.reduce((acc, item) => (acc += item.preco), 0);
   };
+  const goTo=()=>{
+    navigate("/checkout")
+  }
   return (
     <CartContainer className={isOpen ? "is-open" : ""}>
       <Overlay onClick={closeCart} />
@@ -46,6 +51,7 @@ export default function CartFood() {
           variant="primary"
           title="Continuar com a entrega"
           type="button"
+          onClick={goTo}
         />
       </Sidebar>
     </CartContainer>
