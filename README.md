@@ -118,3 +118,18 @@ Para garantir consistência na realização da tarefa, faça a sua escolha entre
 
 5) Faça um novo deploy na Vercel, na plataforma da EBAC nos envie o link do projeto publicado.
 
+🏗️ Pratique:  quarta parte
+
+1) Crie a página de entrega do pedido;
+
+2) Ao clicar em concluir, faça um POST para esta rota;
+
+3) Crie a tela de confirmação do pedido;
+
+4) Depois que a API responder, exiba a tela de confirmação do pedido preenchendo os dados com as informações que API responder;
+
+5) Atualize o repositório do projeto com as alterações;
+
+6) Faça um novo deploy na Vercel;
+
+7) Envie o link do projeto publicado.
