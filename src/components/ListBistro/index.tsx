@@ -4,6 +4,8 @@ import { ContainerListBistro } from "./style";
 import { Container } from "../../globalStyle";
 import type { Product } from "../../types";
 import { getBistros } from "../../services/getBistros";
+import Loader from "../Loader";
+import Fail from "../Fail";
 export default function ListBistro() {
   const [bistros, setBistros] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -11,11 +13,11 @@ export default function ListBistro() {
   useEffect(()=>{
     getBistros()
       .then(setBistros)
-      .catch(()=>setError("Falha ao carregar os restaurantes"))
+      .catch(()=>setError("Estamos atualizando alguns cardápios, volte mais tarde!"))
       .finally(()=> setLoading(false))
   },[]);
-  if(loading)return (<Container><h3>Carregando...</h3></Container>);
-  if(error)return (<Container><h3>{error}</h3></Container>);
+  if(loading)return (<Loader />);
+  if(error)return (<Fail title={error}/>);
   return (
     <Container>
       <ContainerListBistro>
