@@ -15,7 +15,7 @@ export default function FoodModal({ isVisible, closeModal, item }: Props) {
   const dispatch = useAppDispatch();
   const handleCart = ()=>{
     dispatch(addFoodCart(item!));
-    toast.success("Produto adicionado ao carrinho!");    
+    toast.success(`${item?.nome} adicionado ao carrinho!`);    
     closeModal();
   };
   

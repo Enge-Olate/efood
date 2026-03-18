@@ -22,9 +22,11 @@ declare interface MenuItem {
   descricao: string;
   porcao: string;
 }
-type FoodSelled={
-  id:number;
-  price: number;
+declare interface FoodSelled{
+  orderId:string;
+    total:number;
+    status: "pending" | "paid" | "failled";
+    message?: string;
 }
 declare interface CheckoutPurchase {
   products: FoodSelled[];

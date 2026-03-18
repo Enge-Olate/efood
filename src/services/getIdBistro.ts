@@ -1,4 +1,3 @@
-import type { Product } from "../types";
 import { api } from "./api";
 
 export const getIdBistro = async (id: number): Promise<Product>=>{
