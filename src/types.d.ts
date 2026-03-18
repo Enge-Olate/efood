@@ -3,7 +3,7 @@ declare interface cartFoodState {
   isOpen: boolean,
 }
 
-export interface Product {
+declare interface Product {
   id: number;
   titulo: string;
   destacado: boolean;

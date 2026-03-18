@@ -1,7 +1,4 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { cartFoodState, MenuItem } from "../../types";
-
-
 
 const initialState: cartFoodState = {
     items: [],
@@ -19,8 +16,7 @@ const CartSlice = createSlice({
             state.isOpen = false;
         },
         addFoodCart: (state, action: PayloadAction<MenuItem>) => {
-            const addProduct = state.items.push(action.payload);
-            if (addProduct) alert('Adicionado ao carrinho!');
+            state.items.push(action.payload);
         },
         removeFood: (state, action: PayloadAction<number>) => {
             const index = action.payload;

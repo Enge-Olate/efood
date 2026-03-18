@@ -1,7 +1,7 @@
+import toast from "react-hot-toast";
 import fechar from "../../assets/close_1.png";
 import Button from "../Button";
 import { Modal, ModalContent, ModalInfo } from "./style";
-import type { MenuItem } from "../../types";
 import { useAppDispatch } from "../../hooks/appDispatch";
 import { addFoodCart } from "../../store/reducers/cart";
 type Props = {
@@ -10,12 +10,15 @@ type Props = {
   item: MenuItem | null;
 };
 export default function FoodModal({ isVisible, closeModal, item }: Props) {
+
+   
   const dispatch = useAppDispatch();
-  const handleOpenCart = ()=>{
+  const handleCart = ()=>{
     dispatch(addFoodCart(item!));
-    dispatch(closeModal);
+    toast.success("Produto adicionado ao carrinho!");    
+    closeModal();
   };
- 
+  
   if (!isVisible || !item) return null;
 
   return (
@@ -31,7 +34,7 @@ export default function FoodModal({ isVisible, closeModal, item }: Props) {
           <h3>{item.nome}</h3>
           <p>{item.descricao}</p>
           <p>{`serve ${item.porcao}`}</p>
-          <Button onClick={()=>handleOpenCart()} title={`Adicionar ao carrinho - R$ ${item.preco}`} type="button" variant="primary" />
+          <Button onClick={()=>handleCart()} title={`Adicionar ao carrinho - R$ ${item.preco}`} type="button" variant="primary" />
         </ModalInfo>
       </ModalContent>
     </Modal>

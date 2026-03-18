@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../globalStyle";
 
-export const CartContainer=styled.div`
+export const CartContainer = styled.div`
     width: 100vw;
     height: 100vh;
     display: none;
@@ -15,7 +15,7 @@ export const CartContainer=styled.div`
         z-index: 999;
     }    
 `
-export const Overlay= styled.div`
+export const Overlay = styled.div`
     width: 100vw;
     height: 100vh;
     background-color: ${colors.black};
@@ -50,6 +50,12 @@ export const Sidebar = styled.aside`
     ul{
 
         overflow-y: auto;
+    }
+    .emptyCart{
+        
+        font-size: .875rem;
+        font-weight: 400;
+        color: ${colors.colorFontCream};
     }
     
 `

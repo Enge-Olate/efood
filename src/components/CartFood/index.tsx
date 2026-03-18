@@ -20,39 +20,48 @@ export default function CartFood() {
   const total = () => {
     return items.reduce((acc, item) => (acc += item.preco), 0);
   };
-  const goTo=()=>{
-    navigate("/checkout")
-  }
+  const goTo = () => {
+    navigate("/checkout");
+  };
   return (
     <CartContainer className={isOpen ? "is-open" : ""}>
       <Overlay onClick={closeCart} />
       <Sidebar>
-        <ul>
-          {items.map((item, index) => (
-            <CartProduct key={index}>
-              <img src={item.foto} alt={item.nome} />
-              <div>
-                <h4>{item.nome}</h4>
-                <p>{formatPrices(item.preco)}</p>
-              </div>
-              <img
-                onClick={() => removeItemCart(index)}
-                src={dump}
-                alt="Lixeira"
-              />
-            </CartProduct>
-          ))}
-        </ul>
-        <div>
-          <p>Valor total</p>
-          <p>{formatPrices(total())}</p>
-        </div>
-        <Button
-          variant="primary"
-          title="Continuar com a entrega"
-          type="button"
-          onClick={goTo}
-        />
+        {items.length > 0 ? (
+          <>
+            <ul>
+              {items.map((item, index) => (
+                <CartProduct key={index}>
+                  <img src={item.foto} alt={item.nome} />
+                  <div>
+                    <h4>{item.nome}</h4>
+                    <p>{formatPrices(item.preco)}</p>
+                  </div>
+                  <img
+                    onClick={() => removeItemCart(index)}
+                    src={dump}
+                    alt="Lixeira"
+                  />
+                </CartProduct>
+              ))}
+            </ul>
+            <div>
+              <p>Valor total</p>
+              <p>{formatPrices(total())}</p>
+            </div>
+            <Button
+              variant="primary"
+              title="Continuar com a entrega"
+              type="button"
+              onClick={goTo}
+            />
+          </>
+        ) : (
+          <>
+            <p className="emptyCart">Sua sacola está vazia... por enquanto!😏</p>
+            <Button to={"/"} onClick={closeCart} type="link" title="Veja os restaurantes" variant="primary"/>
+          </>
+        )}
       </Sidebar>
     </CartContainer>
   );
