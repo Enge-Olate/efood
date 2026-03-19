@@ -4,21 +4,14 @@ import Button from "../Button";
 import { Modal, ModalContent, ModalInfo } from "./style";
 import { useAppDispatch } from "../../hooks/appDispatch";
 import { addFoodCart } from "../../store/reducers/cart";
-type Props = {
-  isVisible: boolean;
-  closeModal: () => void;
-  item: MenuItem | null;
-};
-export default function FoodModal({ isVisible, closeModal, item }: Props) {
-
-   
+export default function FoodModal({ isVisible, closeModal, item }: ModalProps) {
   const dispatch = useAppDispatch();
-  const handleCart = ()=>{
+  const handleCart = () => {
     dispatch(addFoodCart(item!));
-    toast.success(`${item?.nome} adicionado ao carrinho!`);    
+    toast.success(`${item?.nome} adicionado ao carrinho!`);
     closeModal();
   };
-  
+
   if (!isVisible || !item) return null;
 
   return (
@@ -27,14 +20,17 @@ export default function FoodModal({ isVisible, closeModal, item }: Props) {
         <header>
           <img src={fechar} alt="Clique para fechar" onClick={closeModal} />
         </header>
-        <img
-          src={item.foto}
-          alt={item.nome}/>
+        <img src={item.foto} alt={item.nome} />
         <ModalInfo>
           <h3>{item.nome}</h3>
           <p>{item.descricao}</p>
           <p>{`serve ${item.porcao}`}</p>
-          <Button onClick={()=>handleCart()} title={`Adicionar ao carrinho - R$ ${item.preco}`} type="button" variant="primary" />
+          <Button
+            onClick={() => handleCart()}
+            title={`Adicionar ao carrinho - R$ ${item.preco}`}
+            type="button"
+            variant="primary"
+          />
         </ModalInfo>
       </ModalContent>
     </Modal>

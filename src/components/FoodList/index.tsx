@@ -2,15 +2,14 @@ import { Container } from "../../globalStyle";
 import { CardProduct, ContainerProduct } from "./style";
 import FoodModal from "../FoodModal";
 import Button from "../Button";
-import type { MenuItem } from "../../types";
 import { useState } from "react";
-type Props={
-  itens: MenuItem[]
-}
+type Props = {
+  itens: MenuItem[];
+};
 
-export default function FoodList({itens}:Props) {
-  const [modalOpen, setModalOpen] = useState<boolean>(false)
-  const [selectedItem, setSelectedItem] = useState<MenuItem| null>(null);
+export default function FoodList({ itens }: Props) {
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   return (
     <Container>
       <ContainerProduct>
@@ -23,13 +22,20 @@ export default function FoodList({itens}:Props) {
               <Button
                 type="link"
                 title="Saiba mais"
-                onClick={() => {setModalOpen(true); setSelectedItem(item);}}
+                onClick={() => {
+                  setModalOpen(true);
+                  setSelectedItem(item);
+                }}
               />
             </CardProduct>
           );
         })}
       </ContainerProduct>
-      <FoodModal item={selectedItem} isVisible={modalOpen} closeModal={() => setModalOpen(false)} />
+      <FoodModal
+        item={selectedItem}
+        isVisible={modalOpen}
+        closeModal={() => setModalOpen(false)}
+      />
     </Container>
   );
 }

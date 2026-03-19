@@ -1,6 +1,43 @@
+declare type CheckoutStep =
+ "cart"|"delivery"|"payment"|"confirmation";
+
+
+declare interface BannerProps{
+    imagem:string;
+    titleGen?:string;
+    titleBistro?:string
+}
+declare interface BistroProps{
+  name: string;
+  image: string;
+  rating: number;
+  description: string;
+  destacado?: boolean;
+  tipo: string;
+  tags:string[];
+  id: number;
+}
+declare interface ModalProps{
+  isVisible: boolean;
+  closeModal: () => void;
+  item: MenuItem | null;
+};
+declare interface HeaderProps {
+  variant?: HeaderVariant;
+  infoCar?: string;
+  text?: string;
+  logo: string;
+  title?: string;
+  Click?: ()=> void;
+  variant: "home" | "default"
+}
+declare interface LoaderProps{
+  title?: string;
+}
 declare interface cartFoodState {
   items: MenuItem[],
   isOpen: boolean,
+  step:CheckoutStep,
 }
 
 declare interface Product {

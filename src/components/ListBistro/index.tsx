@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Bistro from "../Bistro";
 import { ContainerListBistro } from "./style";
 import { Container } from "../../globalStyle";
-import type { Product } from "../../types";
 import { getBistros } from "../../services/getBistros";
 import Loader from "../Loader";
 import Fail from "../Fail";

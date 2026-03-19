@@ -10,16 +10,6 @@ import {
   TagContainer,
 } from "./style";
 
-type Props = {
-  name: string;
-  image: string;
-  rating: number;
-  description: string;
-  destacado?: boolean;
-  tipo: string;
-  tags:string[];
-  id: number;
-}
 export default function Bistro({
   name,
   image,
@@ -28,8 +18,8 @@ export default function Bistro({
   destacado,
   tipo,
   tags,
-  id
-}: Props) {
+  id,
+}: BistroProps) {
   return (
     <CardContainer>
       <ImageWrapper>
@@ -46,7 +36,12 @@ export default function Bistro({
           <Rating>{rating} ⭐</Rating>
         </Header>
         <p>{description}</p>
-        <Button to={`/restaurantes/${id}`} title="Saiba mais" type="link" variant="secondary"/>
+        <Button
+          to={`/restaurantes/${id}`}
+          title="Saiba mais"
+          type="link"
+          variant="secondary"
+        />
       </Content>
     </CardContainer>
   );

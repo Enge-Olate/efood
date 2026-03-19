@@ -3,7 +3,7 @@ import { RootGlobalStyle } from "./globalStyle";
 import Paths from "./pages/routes";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import CartFood from "./components/CartFood";
+import CheckoutSidebar from "./components/CheckoutSidebar";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <RootGlobalStyle />
         <Paths />
-        <CartFood/>
+        <CheckoutSidebar/>
       </BrowserRouter>
     </Provider>
   );

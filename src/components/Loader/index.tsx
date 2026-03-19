@@ -1,10 +1,8 @@
 import { colors, Container } from "../../globalStyle";
 import { ScaleLoader } from "react-spinners";
 import { LoaderContainer } from "./style";
-type Props={
-  title?: string;
-}
-export default function Loader({title}:Props) {
+
+export default function Loader({title}:LoaderProps) {
   return (
     <Container>
       <LoaderContainer>

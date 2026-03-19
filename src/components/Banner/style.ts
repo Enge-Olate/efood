@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import type { Props } from ".";
 import { breakPoints, colors } from "../../globalStyle";
-export const ImageBanner= styled.div<Props>`
+export const ImageBanner= styled.div<BannerProps>`
     width: 100%;
     height: 280px;
     display: flex;

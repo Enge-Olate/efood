@@ -1,4 +1,3 @@
-
 import {
   CenterArea,
   ContainerNav,
@@ -10,15 +9,7 @@ import {
 } from "./style";
 
 import { Link } from "react-router-dom";
-type HeaderVariant = "home" | "default";
-interface HeaderProps {
-  variant?: HeaderVariant;
-  infoCar?: string;
-  text?: string;
-  logo: string;
-  title?: string;
-  Click?: ()=> void;
-}
+
 export default function Header({
   variant = "default",
   infoCar,
