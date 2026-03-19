@@ -43,7 +43,7 @@ export default function CheckoutCart() {
                   onClick={() => removeItemCart(index)}
                   src={dump}
                   alt="Remover item"
-                  style={{ cursor: "pointer" }} // Dica rápida de UX: sempre mostre que é clicável!
+                  title="Remover do carrinho"
                 />
               </CartProduct>
             ))}

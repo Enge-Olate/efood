@@ -5,9 +5,10 @@ type Props ={
     type: 'button'|'link'| 'submit';
     variant?:'primary'|'secondary';
     onClick?:()=>void;
+    disabled?: boolean;
 
 }
-export default function Button({ title, to, type, variant='primary', onClick}: Props){
+export default function Button({disabled, title, to, type, variant='primary', onClick}: Props){
     if(type === "link" && to){
         return(
         <ButtonLink onClick={onClick}  to={to as string} title={title} variant={variant}>
@@ -16,7 +17,7 @@ export default function Button({ title, to, type, variant='primary', onClick}: P
     );
     }
     return(
-        <ButtonContainer type={type === 'link'? 'button': type}  title={title} variant={variant} onClick={onClick}>
+        <ButtonContainer disabled={disabled} type={type === 'link'? 'button': type}  title={title} variant={variant} onClick={onClick}>
             {title}
         </ButtonContainer>
     )

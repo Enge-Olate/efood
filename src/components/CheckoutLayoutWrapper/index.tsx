@@ -1,9 +1,8 @@
-// src/components/CheckoutLayoutWrapper/index.tsx
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../hooks/appSelector";
 import { useAppDispatch } from "../../hooks/appDispatch";
 import { close } from "../../store/reducers/cart";
-import { CheckoutLayout } from "../CheckoutLayout"; // O componente visual que criamos antes
+import { CheckoutLayout } from "../CheckoutLayout";
 
 export default function CheckoutLayoutWrapper() {
   const { isOpen } = useAppSelector((state) => state.cart);
@@ -12,7 +11,7 @@ export default function CheckoutLayoutWrapper() {
 
   const handleClose = () => {
     dispatch(close());
-    navigate("/"); 
+    navigate("/");
   };
 
   return (
