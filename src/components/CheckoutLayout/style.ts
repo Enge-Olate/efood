@@ -32,7 +32,6 @@ export const SidebarContainer = styled.aside<{ $isOpen: boolean }>`
 
 export const SidebarContent = styled.div`
   padding: 32px 8px 0 8px;
-  max-width:344px;
   width: 100%;
   flex: 1; 
   overflow-y: auto; 
