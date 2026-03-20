@@ -1,3 +1,5 @@
+import type { DeliveryFormData } from "./deliveryFormSchema";
+
 declare type CheckoutStep =
  "cart"|"delivery"|"payment"|"confirmation";
 
@@ -38,7 +40,7 @@ declare interface cartFoodState {
   items: MenuItem[],
   isOpen: boolean,
   step:CheckoutStep,
-  delivery?: CheckoutPurchase["delivery"];
+  delivery?: DeliveryFormData["delivery"];
 }
 
 declare interface Product {
@@ -73,8 +75,8 @@ declare interface CheckoutPurchase {
       city:string;
       zipCode:string;
       numberHouse:number;
-      complement: string
-    }
+      complement: string | null;
+    },
   },
   payment:{
     card:{

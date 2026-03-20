@@ -1,10 +1,12 @@
-import { useFormContext } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
+import InputMask from "react-input-mask";
 import type { DeliveryFormData } from "../../deliveryFormSchema";
 import { ContainerForm, Row } from "./style";
 
 export default function AddressForm() {
   const {
     register,
+    control,
     formState: { errors },
   } = useFormContext<DeliveryFormData>();
   const addresErrors = errors.delivery?.address;
@@ -30,10 +32,18 @@ export default function AddressForm() {
       <Row>
         <div>
           <label htmlFor="addres-zipCode">Cep</label>
-          <input
-            id="addres-zipCode"
-            type="text"
-            {...register("delivery.address.zipCode")}
+          <Controller
+            control={control}
+            name="delivery.address.zipCode"
+            render={({ field }) => (
+              <InputMask
+                {...field}
+                mask="99999-999"
+                id="addres-zipCode" 
+              >
+                {(inputProps) => <input {...inputProps}type="text" />}
+              </InputMask>
+            )}
           />
           {addresErrors?.zipCode && <span>{addresErrors.zipCode.message}</span>}
         </div>
@@ -45,7 +55,9 @@ export default function AddressForm() {
             type="number"
             {...register("delivery.address.numberHouse")}
           />
-          {addresErrors?.numberHouse && <span>{addresErrors.numberHouse.message}</span>}
+          {addresErrors?.numberHouse && (
+            <span>{addresErrors.numberHouse.message}</span>
+          )}
         </div>
       </Row>
 

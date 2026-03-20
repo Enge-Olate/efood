@@ -3,7 +3,7 @@ import { CheckoutLayout } from "../../../components/CheckoutLayout";
 import { useAppDispatch } from "../../../hooks/appDispatch";
 import { useAppSelector } from "../../../hooks/appSelector";
 import type { RootState } from "../../../store";
-import { close, setStep } from "../../../store/reducers/cart";
+import { clearCart, close, setStep } from "../../../store/reducers/cart";
 import { ContainerForm } from "../../../components/Form/style";
 import {
   paymentFormSchema,
@@ -14,16 +14,19 @@ import PaymentForm from "../../../components/Form/PaymentForm";
 import Button from "../../../components/Button";
 import { postBistro } from "../../../services/postBistro";
 import toast from "react-hot-toast";
+import type { CheckoutProduct, CheckoutPurchase } from "../../../types";
 
 export default function CheckoutPayment() {
-  const { isOpen, items, delivery } = useAppSelector((state: RootState) => state.cart);
+  const { isOpen, items, delivery } = useAppSelector(
+    (state: RootState) => state.cart,
+  );
   const dispatch = useAppDispatch();
   const closeCart = () => {
     dispatch(close());
   };
-  const goToDelivery=()=>{
-    dispatch(setStep("delivery"))
-  }
+  const goToDelivery = () => {
+    dispatch(setStep("delivery"));
+  };
   const methods = useForm<PaymentFormData>({
     resolver: yupResolver(paymentFormSchema),
     defaultValues: {
@@ -39,25 +42,29 @@ export default function CheckoutPayment() {
         },
       },
     },
-    mode:"onBlur",
+    mode: "onBlur",
   });
-  const {register, handleSubmit, formState:{isSubmitting} }=methods
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = methods;
 
-  const onSubimit = async (data: PaymentFormData)=>{
-    try{
-      if(!delivery){
+  const onSubimit = async (data: PaymentFormData) => {
+    try {
+      if (!delivery) {
         dispatch(setStep("delivery"));
         return;
       }
-      const products : CheckoutProduct[] = items.map((item)=>({
-        id:item.id,
+      const products: CheckoutProduct[] = items.map((item) => ({
+        id: item.id,
         price: item.preco,
       }));
-      const payload : CheckoutPurchase={
+      const payload: CheckoutPurchase = {
         products,
-        delivery:{
-          receiver:delivery.receiver,
-          address:{
+        delivery: {
+          receiver: delivery.receiver,
+          address: {
             description: delivery.address.description,
             city: delivery.address.city,
             zipCode: delivery.address.zipCode,
@@ -65,28 +72,27 @@ export default function CheckoutPayment() {
             complement: delivery.address.complement,
           },
         },
-        payment:{
-          card:{
+        payment: {
+          card: {
             name: data.payment.card.name,
             number: data.payment.card.number,
             code: data.payment.card.code,
-            expires:{
+            expires: {
               month: data.payment.expires.month,
               year: data.payment.expires.year,
             },
           },
-          
         },
       };
       const res = await postBistro(payload);
-      if(res)
-        dispatch(setStep("confirmation"));
-        toast.success("Sucesso, sua compra foi finalizada. Bom apetite!");
       
-    }
-    catch(error){
-      if(error)
-        toast.error("Erro ao processar o pagamento. Tente novamente.");
+      if (res){
+        toast.success("Sucesso, sua compra foi finalizada. Bom apetite!");
+        dispatch(clearCart());
+        dispatch(setStep("confirmation"));
+      } 
+    } catch (error) {
+      if (error) toast.error("Erro ao processar o pagamento. Tente novamente.");
     }
   };
   return (
@@ -94,7 +100,7 @@ export default function CheckoutPayment() {
       <FormProvider {...methods}>
         <ContainerForm onSubmit={handleSubmit(onSubimit)} noValidate>
           <h4>Pagamento - Valor a pagar </h4>
-          <PaymentForm {...register}/>
+          <PaymentForm {...register} />
           <Button
             type="submit"
             variant="primary"

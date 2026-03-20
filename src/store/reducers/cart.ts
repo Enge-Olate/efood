@@ -1,11 +1,12 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { DeliveryFormData } from "../../deliveryFormSchema";
+import {type DeliveryFormData } from "../../deliveryFormSchema";
+import type { cartFoodState, CheckoutStep, MenuItem } from "../../types";
 
 
 const initialState: cartFoodState = {
     items: [],
     isOpen: false,
-    step:"cart"
+    step:"cart",
 }
 
 const CartSlice = createSlice({
@@ -35,9 +36,14 @@ const CartSlice = createSlice({
             state.delivery = action.payload;
             state.step="payment"
         },
+        clearCart:(state)=>{
+            state.items =[];
+            state.delivery=undefined;
+            state.step="cart";
+        },
     }
 });
 
-export const { close, open, addFoodCart, removeFood, setStep, setDelivery } = CartSlice.actions;
+export const { close, open, addFoodCart, removeFood, setStep, setDelivery, clearCart } = CartSlice.actions;
 export default CartSlice.reducer;
 
