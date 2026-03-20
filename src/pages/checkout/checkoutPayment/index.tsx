@@ -76,7 +76,7 @@ export default function CheckoutPayment() {
           card: {
             name: data.payment.card.name,
             number: data.payment.card.number,
-            code: data.payment.card.code,
+            code: Number(data.payment.card.code),
             expires: {
               month: data.payment.expires.month,
               year: data.payment.expires.year,

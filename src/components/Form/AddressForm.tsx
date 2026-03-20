@@ -1,10 +1,12 @@
-import { useFormContext } from "react-hook-form";
+import {IMaskInput} from "react-imask";
+import { Controller, useFormContext } from "react-hook-form";
 import type { DeliveryFormData } from "../../deliveryFormSchema";
 import { ContainerForm, Row } from "./style";
 
 export default function AddressForm() {
   const {
     register,
+    control,
     formState: { errors },
   } = useFormContext<DeliveryFormData>();
   const addresErrors = errors.delivery?.address;
@@ -30,10 +32,19 @@ export default function AddressForm() {
       <Row>
         <div>
           <label htmlFor="addres-zipCode">Cep</label>
-          <input
-            id="addres-zipCode"
-            type="text"
-            {...register("delivery.address.zipCode")}
+          <Controller
+            control={control}
+            name="delivery.address.zipCode"
+            render={({ field })=>(
+              <IMaskInput
+                {...field}
+                id="addres-zipCode"
+                mask="00000-000"
+                onAccept={(value: unknown)=>
+                  field.onChange(value as string)
+                }
+              />
+            )}
           />
           {addresErrors?.zipCode && <span>{addresErrors.zipCode.message}</span>}
         </div>
