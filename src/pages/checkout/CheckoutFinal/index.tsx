@@ -13,6 +13,7 @@ export default function CheckoutFinal() {
     dispatch(close());
   };
 
+
   return (
     <CheckoutLayout isOpen={isOpen} onClose={closeCart}>
       <Header>
@@ -42,7 +43,7 @@ export default function CheckoutFinal() {
         </p>
       </GladConfirmation>
       <Confirmation>
-        <Button title="Concluir" type="button" variant="primary" />
+        <Button title="Concluir" type="link" variant="primary" onClick={closeCart} to={"/"}/>
       </Confirmation>
     </CheckoutLayout>
   );

@@ -38,6 +38,7 @@ declare interface cartFoodState {
   items: MenuItem[],
   isOpen: boolean,
   step:CheckoutStep,
+  delivery?: CheckoutPurchase["delivery"];
 }
 
 declare interface Product {
@@ -59,14 +60,12 @@ declare interface MenuItem {
   descricao: string;
   porcao: string;
 }
-declare interface FoodSelled{
-  orderId:string;
-    total:number;
-    status: "pending" | "paid" | "failled";
-    message?: string;
+declare interface CheckoutProduct{
+  id:number;
+  price: number;
 }
 declare interface CheckoutPurchase {
-  products: FoodSelled[];
+  products: CheckoutProduct[];
    delivery:{
     receiver: string;
     address:{

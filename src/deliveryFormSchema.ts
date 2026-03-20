@@ -6,9 +6,10 @@ export const deliveryFormSchema = yup.object({
             description: yup.string().required("Descrição é obriratória."),
             city:yup.string().required("Cidade é obrigatória."),
             zipCode:yup.string().required("Cep é obrigatório."),
-            number:yup.number().required("Número é obrigatório.").typeError("Apenas números!").integer("Números sem casas decimais!").min(1, "Número precisa ser maior que zero!"),
+            numberHouse:yup.number().required("Número é obrigatório.").typeError("Apenas números!").integer("Números sem casas decimais!").min(1, "Número precisa ser maior que zero!"),
             complement:yup.string().nullable().transform((value)=>value??"").default("")
         }),
     }),
 });
 export type DeliveryFormData = yup.InferType<typeof deliveryFormSchema>;
+

@@ -43,9 +43,9 @@ export default function AddressForm() {
           <input
             id="addres-number"
             type="number"
-            {...register("delivery.address.number")}
+            {...register("delivery.address.numberHouse")}
           />
-          {addresErrors?.number && <span>{addresErrors.number.message}</span>}
+          {addresErrors?.numberHouse && <span>{addresErrors.numberHouse.message}</span>}
         </div>
       </Row>
 

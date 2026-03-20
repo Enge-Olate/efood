@@ -12,18 +12,17 @@ import {
 import { yupResolver } from "@hookform/resolvers/yup";
 import PaymentForm from "../../../components/Form/PaymentForm";
 import Button from "../../../components/Button";
+import { postBistro } from "../../../services/postBistro";
+import toast from "react-hot-toast";
 
 export default function CheckoutPayment() {
-  const { isOpen } = useAppSelector((state: RootState) => state.cart);
+  const { isOpen, items, delivery } = useAppSelector((state: RootState) => state.cart);
   const dispatch = useAppDispatch();
   const closeCart = () => {
     dispatch(close());
   };
   const goToDelivery=()=>{
     dispatch(setStep("delivery"))
-  }
-  const goToConfirmation=()=>{
-    dispatch(setStep("confirmation"))
   }
   const methods = useForm<PaymentFormData>({
     resolver: yupResolver(paymentFormSchema),
@@ -40,18 +39,67 @@ export default function CheckoutPayment() {
         },
       },
     },
+    mode:"onBlur",
   });
+  const {register, handleSubmit, formState:{isSubmitting} }=methods
+
+  const onSubimit = async (data: PaymentFormData)=>{
+    try{
+      if(!delivery){
+        dispatch(setStep("delivery"));
+        return;
+      }
+      const products : CheckoutProduct[] = items.map((item)=>({
+        id:item.id,
+        price: item.preco,
+      }));
+      const payload : CheckoutPurchase={
+        products,
+        delivery:{
+          receiver:delivery.receiver,
+          address:{
+            description: delivery.address.description,
+            city: delivery.address.city,
+            zipCode: delivery.address.zipCode,
+            numberHouse: delivery.address.numberHouse,
+            complement: delivery.address.complement,
+          },
+        },
+        payment:{
+          card:{
+            name: data.payment.card.name,
+            number: data.payment.card.number,
+            code: data.payment.card.code,
+            expires:{
+              month: data.payment.expires.month,
+              year: data.payment.expires.year,
+            },
+          },
+          
+        },
+      };
+      const res = await postBistro(payload);
+      if(res)
+        dispatch(setStep("confirmation"));
+        toast.success("Sucesso, sua compra foi finalizada. Bom apetite!");
+      
+    }
+    catch(error){
+      if(error)
+        toast.error("Erro ao processar o pagamento. Tente novamente.");
+    }
+  };
   return (
     <CheckoutLayout isOpen={isOpen} onClose={closeCart}>
       <FormProvider {...methods}>
-        <ContainerForm>
+        <ContainerForm onSubmit={handleSubmit(onSubimit)} noValidate>
           <h4>Pagamento - Valor a pagar </h4>
-          <PaymentForm />
+          <PaymentForm {...register}/>
           <Button
             type="submit"
             variant="primary"
             title="Finalizar pagamento"
-            onClick={goToConfirmation}
+            disabled={isSubmitting}
           />
           <Button
             type="button"
