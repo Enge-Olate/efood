@@ -41,6 +41,7 @@ declare interface cartFoodState {
   isOpen: boolean,
   step:CheckoutStep,
   delivery?: DeliveryFormData["delivery"];
+  orderId?: string;
 }
 
 declare interface Product {

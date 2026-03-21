@@ -7,6 +7,7 @@ const initialState: cartFoodState = {
     items: [],
     isOpen: false,
     step:"cart",
+    orderId: undefined,
 }
 
 const CartSlice = createSlice({
@@ -41,9 +42,12 @@ const CartSlice = createSlice({
             state.delivery=undefined;
             state.step="cart";
         },
+        setOrderId:(state, action: PayloadAction<string>)=>{
+            state.orderId = action.payload;
+        }
     }
 });
 
-export const { close, open, addFoodCart, removeFood, setStep, setDelivery, clearCart } = CartSlice.actions;
+export const { close, open, addFoodCart, removeFood, setStep, setDelivery, clearCart, setOrderId } = CartSlice.actions;
 export default CartSlice.reducer;
 
