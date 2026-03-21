@@ -14,8 +14,13 @@ export const deliveryFormSchema = yup.object({
                         .required("Cidade é obrigatória."),
                 zipCode:
                     yup.string()
+<<<<<<< HEAD
                         .required("Cep é obrigatório."),
                         // .matches(/^[0-9]{5}-?[0-9]{3}$/, "CEP inválido, verifique!"),
+=======
+                        .required("Cep é obrigatório.")
+                        .matches(/^[0-9]{5}-?[0-9]{3}$/, "CEP inválido, verifique!"),
+>>>>>>> 691ae7d583aea266f4b1461e913bd18f1ed6b450
                 numberHouse:
                     yup.number()
                         .required("Número é obrigatório.")

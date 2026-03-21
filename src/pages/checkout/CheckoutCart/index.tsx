@@ -5,7 +5,7 @@ import { useAppSelector } from "../../../hooks/appSelector";
 import type { RootState } from "../../../store";
 import { useAppDispatch } from "../../../hooks/appDispatch";
 import { close, removeFood, setStep } from "../../../store/reducers/cart";
-import { formatPrices } from "../../../utils";
+import { formatPrices, total } from "../../../utils";
 import { CheckoutLayout } from "../../../components/CheckoutLayout";
 export default function CheckoutCart() {
   const { isOpen, items } = useAppSelector((state: RootState) => state.cart);
@@ -17,10 +17,6 @@ export default function CheckoutCart() {
 
   const removeItemCart = (id: number) => {
     dispatch(removeFood(id));
-  };
-
-  const total = () => {
-    return items.reduce((acc, item) => (acc += item.preco), 0);
   };
 
   const goTo = () => {
@@ -50,7 +46,7 @@ export default function CheckoutCart() {
           </ul>
           <InfoValue>
             <p>Valor total</p>
-            <p>{formatPrices(total())}</p>
+            <p>{formatPrices(total(items))}</p>
           </InfoValue>
           <Button
             variant="primary"

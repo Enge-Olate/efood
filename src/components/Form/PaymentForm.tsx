@@ -1,10 +1,12 @@
-import { useFormContext } from "react-hook-form";
+import { IMaskInput } from "react-imask";
+import { Controller, useFormContext } from "react-hook-form";
 import type { PaymentFormData } from "../../paymentFormSchema";
 import { ContainerForm, Row } from "./style";
 
 export default function PaymentForm() {
   const {
     register,
+    control,
     formState: { errors },
   } = useFormContext<PaymentFormData>();
   const paymentErrors = errors.payment;
@@ -20,10 +22,17 @@ export default function PaymentForm() {
       <Row>
         <div className="number_card">
           <label htmlFor="payment-number">Número do cartão</label>
-          <input
-            id="payment-number"
-            type="text"
-            {...register("payment.card.number")}
+          <Controller
+            control={control}
+            name="payment.card.number"
+            render={({ field }) => (
+              <IMaskInput
+                {...field}
+                id="payment-number"
+                mask="0000 0000 0000 0000"
+                onAccept={(value: unknown) => field.onChange(value as string)}
+              />
+            )}
           />
           {paymentErrors?.card?.number && (
             <span>{paymentErrors?.card?.number?.message}</span>
@@ -31,11 +40,20 @@ export default function PaymentForm() {
         </div>
         <div className="number_cvv">
           <label htmlFor="payment-code">CVV</label>
-          <input
-            id="payment-code"
-            type="text"
-            {...register("payment.card.code")}
+          <Controller
+            control={control}
+            name="payment.card.code"
+            render={({ field }) => (
+              <IMaskInput
+                {...field}
+                id="payment-code"
+                mask="0000"
+                inputMode="numeric"
+                onAccept={(value: unknown) => field.onChange(value as string)}
+              />
+            )}
           />
+
           {paymentErrors?.card?.code && (
             <span>{paymentErrors?.card?.code?.message}</span>
           )}

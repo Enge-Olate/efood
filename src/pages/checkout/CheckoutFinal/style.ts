@@ -14,14 +14,15 @@ export const GladConfirmation = styled.main`
         font-weight: 400;
         line-height: 22px;
         color: ${colors.colorFontCream};
-
+    }
+    .paragraph{
+        margin-bottom: 16px;
     }
 
 `
 export const Confirmation=styled.footer`
-    button{
+    
         margin-top: 24px;
-    }
 
 
 `

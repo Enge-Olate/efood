@@ -1,3 +1,4 @@
+import type { HeaderProps } from "../../types";
 import {
   CenterArea,
   ContainerNav,

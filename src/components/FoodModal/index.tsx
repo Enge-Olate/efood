@@ -4,6 +4,7 @@ import Button from "../Button";
 import { Modal, ModalContent, ModalInfo } from "./style";
 import { useAppDispatch } from "../../hooks/appDispatch";
 import { addFoodCart } from "../../store/reducers/cart";
+import { formatPrices } from "../../utils";
 export default function FoodModal({ isVisible, closeModal, item }: ModalProps) {
   const dispatch = useAppDispatch();
   const handleCart = () => {
@@ -27,7 +28,7 @@ export default function FoodModal({ isVisible, closeModal, item }: ModalProps) {
           <p>{`serve ${item.porcao}`}</p>
           <Button
             onClick={() => handleCart()}
-            title={`Adicionar ao carrinho - R$ ${item.preco}`}
+            title={`Adicionar ao carrinho - R$ ${formatPrices(item.preco)}`}
             type="button"
             variant="primary"
           />

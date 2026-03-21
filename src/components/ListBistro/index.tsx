@@ -5,6 +5,7 @@ import { Container } from "../../globalStyle";
 import { getBistros } from "../../services/getBistros";
 import Loader from "../Loader";
 import Fail from "../Fail";
+import type { Product } from "../../types";
 export default function ListBistro() {
   const [bistros, setBistros] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
