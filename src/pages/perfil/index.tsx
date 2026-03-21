@@ -1,4 +1,4 @@
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
@@ -11,20 +11,53 @@ import { useAppSelector } from "../../hooks/appSelector";
 import { useAppDispatch } from "../../hooks/appDispatch";
 import { open } from "../../store/reducers/cart";
 import Loader from "../../components/Loader";
+import { colors } from "../../globalStyle";
 export default function Perfil() {
   const { id } = useParams();
   const [bistro, setBistro] = useState<Product | null>(null);
-  const {items} = useAppSelector((state)=> state.cart);
+  const { items } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
-  const openCart = ()=>{
+  const openCart = () => {
     dispatch(open());
-  }
-  useEffect(() => {
-    getIdBistro(Number(id))
-    .then((data)=> setBistro(data))
-    .catch((Error)=>console.log("Erro: ", Error));
-  }, [id]);
-  if (!bistro) {
+  };
+  const message = () => {
+    toast.error("Sua sacola está vazia... por enquanto!", {
+      icon: "😋",
+      duration: 4000,
+      position: "top-center",
+      style: {
+        backgroundColor: `${colors.orangePale}`,
+        color: `${colors.colorFontTomato}`,
+      },
+    })
+  };
+    const nullCart = () => {
+      if (items.length > 0) {
+        openCart();
+      } else {
+        message();
+      }
+    };
+    useEffect(() => {
+      getIdBistro(Number(id))
+        .then((data) => setBistro(data))
+        .catch((Error) => console.log("Erro: ", Error));
+    }, [id]);
+    if (!bistro) {
+      return (
+        <>
+          <Header
+            variant="default"
+            logo={logo}
+            text="Restaurante"
+            infoCar={`${items.length} produto(s) no carrinho`}
+            Click={() => nullCart()}
+          />
+          <Loader title="Carregando cardápio do restaurante" />
+          <Footer />
+        </>
+      );
+    }
     return (
       <>
         <Header
@@ -32,30 +65,17 @@ export default function Perfil() {
           logo={logo}
           text="Restaurante"
           infoCar={`${items.length} produto(s) no carrinho`}
-          Click={()=> openCart()}
+          Click={() => nullCart()}
         />
-        <Loader title="Carregando cardápio do restaurante"/>
+        <Banner
+          imagem={bistro.capa}
+          titleGen={bistro.tipo}
+          titleBistro={bistro.titulo}
+        />
+        <FoodList items={bistro.cardapio} />
         <Footer />
+        <Toaster />
       </>
     );
-  }
-  return (
-    <>
-      <Header
-        variant="default"
-        logo={logo}
-        text="Restaurante"
-        infoCar={`${items.length} produto(s) no carrinho`}
-        Click={()=> openCart()}
-      />
-      <Banner
-        imagem={bistro.capa}
-        titleGen={bistro.tipo}
-        titleBistro={bistro.titulo}
-      />
-      <FoodList itens={bistro.cardapio} />
-      <Footer />
-      <Toaster position="top-center"/>
-    </>
-  );
-}
+  };
+

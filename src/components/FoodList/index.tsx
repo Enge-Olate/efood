@@ -4,16 +4,16 @@ import FoodModal from "../FoodModal";
 import Button from "../Button";
 import { useState } from "react";
 type Props = {
-  itens: MenuItem[];
+  items: MenuItem[];
 };
 
-export default function FoodList({ itens }: Props) {
+export default function FoodList({ items }: Props) {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   return (
     <Container>
       <ContainerProduct>
-        {itens.map((item) => {
+        {items.map((item) => {
           return (
             <CardProduct key={item.id}>
               <img src={item.foto} alt="" />

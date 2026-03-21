@@ -5,12 +5,24 @@ import { Modal, ModalContent, ModalInfo } from "./style";
 import { useAppDispatch } from "../../hooks/appDispatch";
 import { addFoodCart } from "../../store/reducers/cart";
 import { formatPrices } from "../../utils";
+import { colors } from "../../globalStyle";
 export default function FoodModal({ isVisible, closeModal, item }: ModalProps) {
   const dispatch = useAppDispatch();
   const handleCart = () => {
     dispatch(addFoodCart(item!));
-    toast.success(`${item?.nome} adicionado ao carrinho!`);
+    notityToast();
     closeModal();
+  };
+
+  const notityToast=()=>{
+    toast.success(`${item?.nome} adicionado ao carrinho!`, {
+      duration: 4000,
+      icon:"🥘",
+      style:{
+        color:`${colors.colorFontTomato}`,
+        backgroundColor: `${colors.orangePale}`,
+      }
+    })
   };
 
   if (!isVisible || !item) return null;
@@ -28,7 +40,7 @@ export default function FoodModal({ isVisible, closeModal, item }: ModalProps) {
           <p>{`serve ${item.porcao}`}</p>
           <Button
             onClick={() => handleCart()}
-            title={`Adicionar ao carrinho - R$ ${formatPrices(item.preco)}`}
+            title={`Adicionar ao carrinho - ${formatPrices(item.preco)}`}
             type="button"
             variant="primary"
           />
