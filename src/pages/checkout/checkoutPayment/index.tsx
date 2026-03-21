@@ -3,11 +3,7 @@ import { CheckoutLayout } from "../../../components/CheckoutLayout";
 import { useAppDispatch } from "../../../hooks/appDispatch";
 import { useAppSelector } from "../../../hooks/appSelector";
 import type { RootState } from "../../../store";
-<<<<<<< HEAD
-import { clearCart, close, setStep } from "../../../store/reducers/cart";
-=======
 import { clearCart, close, setOrderId, setStep } from "../../../store/reducers/cart";
->>>>>>> 691ae7d583aea266f4b1461e913bd18f1ed6b450
 import { ContainerForm } from "../../../components/Form/style";
 import {
   paymentFormSchema,
@@ -19,10 +15,7 @@ import Button from "../../../components/Button";
 import { postBistro } from "../../../services/postBistro";
 import toast from "react-hot-toast";
 import type { CheckoutProduct, CheckoutPurchase } from "../../../types";
-<<<<<<< HEAD
-=======
 import { formatPrices, total } from "../../../utils";
->>>>>>> 691ae7d583aea266f4b1461e913bd18f1ed6b450
 
 export default function CheckoutPayment() {
   const { isOpen, items, delivery } = useAppSelector(
@@ -84,11 +77,8 @@ export default function CheckoutPayment() {
           card: {
             name: data.payment.card.name,
             number: data.payment.card.number,
-<<<<<<< HEAD
-            code: data.payment.card.code,
-=======
+
             code: Number(data.payment.card.code),
->>>>>>> 691ae7d583aea266f4b1461e913bd18f1ed6b450
             expires: {
               month: data.payment.expires.month,
               year: data.payment.expires.year,
@@ -97,18 +87,11 @@ export default function CheckoutPayment() {
         },
       };
       const res = await postBistro(payload);
-<<<<<<< HEAD
-      
-      if (res){
-        toast.success("Sucesso, sua compra foi finalizada. Bom apetite!");
-        dispatch(clearCart());
-=======
       if (res){
         const orderId = res.orderId;
         toast.success("Sucesso, sua compra foi finalizada. Bom apetite!");
         dispatch(clearCart());
         dispatch(setOrderId(orderId));
->>>>>>> 691ae7d583aea266f4b1461e913bd18f1ed6b450
         dispatch(setStep("confirmation"));
       } 
     } catch (error) {
@@ -119,11 +102,7 @@ export default function CheckoutPayment() {
     <CheckoutLayout isOpen={isOpen} onClose={closeCart}>
       <FormProvider {...methods}>
         <ContainerForm onSubmit={handleSubmit(onSubimit)} noValidate>
-<<<<<<< HEAD
-          <h4>Pagamento - Valor a pagar </h4>
-=======
           <h4>Pagamento - <span>{`Valor a pagar ${formatPrices(total(items))}`}</span></h4>
->>>>>>> 691ae7d583aea266f4b1461e913bd18f1ed6b450
           <PaymentForm {...register} />
           <Button
             type="submit"

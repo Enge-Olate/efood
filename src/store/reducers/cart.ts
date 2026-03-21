@@ -7,10 +7,7 @@ const initialState: cartFoodState = {
     items: [],
     isOpen: false,
     step:"cart",
-<<<<<<< HEAD
-=======
     orderId: undefined,
->>>>>>> 691ae7d583aea266f4b1461e913bd18f1ed6b450
 }
 
 const CartSlice = createSlice({
@@ -45,12 +42,7 @@ const CartSlice = createSlice({
             state.delivery=undefined;
             state.step="cart";
         },
-<<<<<<< HEAD
-    }
-});
 
-export const { close, open, addFoodCart, removeFood, setStep, setDelivery, clearCart } = CartSlice.actions;
-=======
         setOrderId:(state, action: PayloadAction<string>)=>{
             state.orderId = action.payload;
         }
@@ -58,6 +50,5 @@ export const { close, open, addFoodCart, removeFood, setStep, setDelivery, clear
 });
 
 export const { close, open, addFoodCart, removeFood, setStep, setDelivery, clearCart, setOrderId } = CartSlice.actions;
->>>>>>> 691ae7d583aea266f4b1461e913bd18f1ed6b450
 export default CartSlice.reducer;
 
