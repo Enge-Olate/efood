@@ -12,9 +12,14 @@ export const ContainerProduct = styled.div`
     @media (max-width: ${breakPoints.tablet}){
         grid-template-columns: 1fr;
         justify-items: center;
-        padding: 16px;
+        padding: 16px 0;
     }
     @media (min-width: ${breakPoints.tablet}) {
+        grid-template-columns:repeat(2, 1fr);
+        justify-items: center;
+        column-gap: 0;
+    }    
+    @media (min-width: ${breakPoints.desktop}) {
         grid-template-columns:repeat(3, 1fr);
         justify-items: center;
         column-gap: 24px;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../globalStyle";
+import { breakPoints, colors } from "../../globalStyle";
 
 export const ContainerForm = styled.form`
     display: flex;
@@ -24,39 +24,53 @@ export const ContainerForm = styled.form`
     #addres-complement{
         margin-bottom: 24px;
     }
-    #payment-month, #payment-year{
-        margin-bottom: 24px;
-    }
+    
     
 `
 export const Row = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
     div{
         width: 155px;
         display: flex;
         flex-direction: column;
+        @media(max-width: ${breakPoints.mobile}){
+            width:120px;
+            
+        }
     }
     label{
         margin-bottom: 8px;
     }
     .number_card{
         width: 228px;
+        @media(max-width: ${breakPoints.mobile}){
+            width:170px;
+        }
+        /* @media(min-width: ${breakPoints.mobile}){
+            width:150px;
+
+        } */
         
     }
     .number_cvv{
         width: 87px;
+        @media(max-width: ${breakPoints.mobile}){
+            width:60px;
+        }
     }
     
 
 `
 export const AddressNumber=styled.div`
     
-    >div{
+    div{
         
         display: flex;
         flex-direction: column;
+        
     }
    label{
         width: 100%;
@@ -67,6 +81,7 @@ export const AddressNumber=styled.div`
         max-width: 155px;
         width: 100%;
     }
+    
 
 `
 export const NumberCard = styled.div`

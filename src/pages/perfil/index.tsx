@@ -74,7 +74,6 @@ export default function Perfil() {
         />
         <FoodList items={bistro.cardapio} />
         <Footer />
-        <Toaster />
       </>
     );
   };

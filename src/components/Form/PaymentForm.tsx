@@ -59,7 +59,7 @@ export default function PaymentForm() {
           )}
         </div>
       </Row>
-      <Row>
+      <Row style={{marginBottom:"24px"}}>
         <div>
           <label htmlFor="payment-month">Mês de vencimento</label>
           <input

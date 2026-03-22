@@ -4,6 +4,7 @@ import Paths from "./pages/routes";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import CheckoutSidebar from "./components/CheckoutSidebar";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Paths />
         <CheckoutSidebar/>
       </BrowserRouter>
+      <Toaster/>
     </Provider>
   );
 }

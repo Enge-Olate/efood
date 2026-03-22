@@ -17,7 +17,10 @@ export function useCheckout() {
         ({
             mutationFn: postBistro,
             onMutate: () => {
-                const toastId = toast.loading("Processando compra...");
+                const toastId = toast.loading("Processando compra...",{
+                    duration: 3000,
+                    position: "bottom-center",
+                });
                 return { toastId }
             },
             onSuccess: (_data, _variables, context) => {
@@ -25,6 +28,7 @@ export function useCheckout() {
                     toast.success("Compra finalizada com sucesso!", {
                         id: context.toastId,
                         duration:4000,
+                        position:"bottom-center",
                         style:{
                             backgroundColor:`${colors.orangePale}`,
                             color:`${colors.colorFontTomato}`,
@@ -34,7 +38,14 @@ export function useCheckout() {
             },
             onError: (error, _variables, context) => {
                 if (context?.toastId) {
-                    toast.error(error.message, {id: context.toastId});
+                    toast.error(error.message, {
+                        duration:4000,
+                        position:"bottom-center",
+                        style:{
+                            backgroundColor:`${colors.tomato}`,
+                            color:`${colors.colorFontCream}`,
+                        },
+                        id: context.toastId});
                 }
             }
         });

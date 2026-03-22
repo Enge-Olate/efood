@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPoints } from '../../globalStyle';
 
 export const Overlay = styled.div<{ $isOpen: boolean }>`
   position: fixed;
@@ -28,6 +29,9 @@ export const SidebarContainer = styled.aside<{ $isOpen: boolean }>`
   
   display: flex;
   flex-direction: column;
+  @media(max-width: ${breakPoints.mobile}){
+    max-width: 270px;
+  }
 `;
 
 export const SidebarContent = styled.div`
