@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { HeaderProps } from "../../types";
 import {
   CenterArea,
@@ -9,7 +10,6 @@ import {
   Title,
 } from "./style";
 
-import { Link } from "react-router-dom";
 
 export default function Header({
   variant = "default",
@@ -24,7 +24,9 @@ export default function Header({
       {variant === "default" && (
         <ContainerNav>
           <LeftArea>
+            <Link to={"/"}>
             <Subtitle>{text}</Subtitle>
+            </Link>
           </LeftArea>
           <CenterArea>
             <Link to={"/"}>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../../globalStyle";
+import { breakPoints, colors } from "../../../globalStyle";
 
 export const CartProduct = styled.li`
     padding: 8px;
@@ -34,8 +34,11 @@ export const CartProduct = styled.li`
             height: 16px;
             position: absolute;
             top:76px;
-            left: 310px;
+            left: 320px;
             cursor: pointer;
+            @media(max-width:${breakPoints.mobile}){
+                left: 232px;
+            }
     }
     
 
