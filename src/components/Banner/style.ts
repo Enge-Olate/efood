@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { breakPoints, colors } from "../../globalStyle";
+import type { BannerProps } from "../../types";
 export const ImageBanner= styled.div<BannerProps>`
     width: 100%;
     height: 280px;
