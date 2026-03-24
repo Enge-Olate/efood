@@ -51,9 +51,9 @@ export default function AddressForm() {
         </div>
 
         <div>
-          <label htmlFor="addres-number">Número</label>
+          <label htmlFor="address-number">Número</label>
           <input
-            id="addres-number"
+            id="address-number"
             type="number"
             {...register("delivery.address.numberHouse")}
           />

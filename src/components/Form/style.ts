@@ -81,6 +81,16 @@ export const AddressNumber=styled.div`
         max-width: 155px;
         width: 100%;
     }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+    input[type=number] {
+    appearance: none;
+
+}
     
 
 `
