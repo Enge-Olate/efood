@@ -7,12 +7,14 @@ export const paymentFormSchema = yup.object({
                     .required("Nome do cartão é obrigatório."),
             number:
                 yup.string()
-                    .required("Número do cartão é obrigatório."),
+                    .required("Número do cartão é obrigatório.")
+                    .transform((value)=> value.replace(/\s/g, ""))
+                    .matches(/^\d{16}$/, "Verifique o número do cartão!"),
             code:
 
                 yup.string()
                     .required("CVV é obrigatório.")
-                    .matches(/^\d{3,4}$/, "CVV deve ter 3 ou 4 digitos.")
+                    .matches(/^\d{3,4}$/, "CVV deve ter 3 ou 4 digitos."),
         }),
         expires: yup.object({
             month:

@@ -30,6 +30,7 @@ export default function PaymentForm() {
                 {...field}
                 id="payment-number"
                 mask="0000 0000 0000 0000"
+                unmask={true}
                 onAccept={(value: unknown) => field.onChange(value as string)}
               />
             )}
