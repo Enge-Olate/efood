@@ -1,3 +1,4 @@
+import type { BistroProps } from "../../types";
 import Button from "../Button";
 
 import {

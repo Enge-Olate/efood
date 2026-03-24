@@ -1,3 +1,4 @@
+import type { BannerProps } from "../../types";
 import { ImageBanner, InfoBistro } from "./style";
 
 export default function Banner({ imagem, titleGen, titleBistro }: BannerProps) {

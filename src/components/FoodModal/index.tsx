@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../hooks/appDispatch";
 import { addFoodCart } from "../../store/reducers/cart";
 import { formatPrices } from "../../utils";
 import { colors } from "../../globalStyle";
+import type { ModalProps } from "../../types";
 export default function FoodModal({ isVisible, closeModal, item }: ModalProps) {
   const dispatch = useAppDispatch();
   const handleCart = () => {

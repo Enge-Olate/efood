@@ -3,6 +3,7 @@ import { CardProduct, ContainerProduct } from "./style";
 import FoodModal from "../FoodModal";
 import Button from "../Button";
 import { useState } from "react";
+import type { MenuItem } from "../../types";
 type Props = {
   items: MenuItem[];
 };

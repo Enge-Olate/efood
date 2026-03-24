@@ -12,6 +12,7 @@ import { useAppDispatch } from "../../hooks/appDispatch";
 import { open } from "../../store/reducers/cart";
 import Loader from "../../components/Loader";
 import { colors } from "../../globalStyle";
+import type { Product } from "../../types";
 export default function Perfil() {
   const { id } = useParams();
   const [bistro, setBistro] = useState<Product | null>(null);

@@ -1,3 +1,4 @@
+import type { Product } from "../types";
 import { api } from "./api";
 
 export const getBistros = async():Promise<Product[]>=>{
